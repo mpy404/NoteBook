@@ -1,0 +1,769 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>继承 · Java</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Mpy">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-ancre-navigation/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="多态.html" />
+    
+    
+    <link rel="prev" href="封装.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Gitbook的搭建
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    Java基础
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../java基础/java基础.html">
+            
+                <a href="../java基础/java基础.html">
+            
+                    
+                    java基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../java基础/变量与常亮.html">
+            
+                <a href="../java基础/变量与常亮.html">
+            
+                    
+                    变量与常亮
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../java基础/数据类型.html">
+            
+                <a href="../java基础/数据类型.html">
+            
+                    
+                    数据类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../java基础/运算符.html">
+            
+                <a href="../java基础/运算符.html">
+            
+                    
+                    运算符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../java基础/判断和循环.html">
+            
+                <a href="../java基础/判断和循环.html">
+            
+                    
+                    判断和循环
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../java基础/集合.html">
+            
+                <a href="../java基础/集合.html">
+            
+                    
+                    集合
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../java基础/方法和构造方法.html">
+            
+                <a href="../java基础/方法和构造方法.html">
+            
+                    
+                    方法和构造方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../java基础/Array数组.html">
+            
+                <a href="../java基础/Array数组.html">
+            
+                    
+                    Array
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../java基础/String.html">
+            
+                <a href="../java基础/String.html">
+            
+                    
+                    String
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../java基础/类和对象.html">
+            
+                <a href="../java基础/类和对象.html">
+            
+                    
+                    类和对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="../java基础/包.html">
+            
+                <a href="../java基础/包.html">
+            
+                    
+                    包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="../java基础/修饰符.html">
+            
+                <a href="../java基础/修饰符.html">
+            
+                    
+                    修饰符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13" data-path="../java基础/抽象类.html">
+            
+                <a href="../java基础/抽象类.html">
+            
+                    
+                    抽象类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.14" data-path="../java基础/接口.html">
+            
+                <a href="../java基础/接口.html">
+            
+                    
+                    接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.15" data-path="../java基础/内部类.html">
+            
+                <a href="../java基础/内部类.html">
+            
+                    
+                    内部类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.16" data-path="../java基础/基本类型包装类.html">
+            
+                <a href="../java基础/基本类型包装类.html">
+            
+                    
+                    基本类型包装类
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    面向对象
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="封装.html">
+            
+                <a href="封装.html">
+            
+                    
+                    封装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.2" data-path="继承.html">
+            
+                <a href="继承.html">
+            
+                    
+                    继承
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="多态.html">
+            
+                <a href="多态.html">
+            
+                    
+                    多态
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    常用API
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../常用API/Random.html">
+            
+                <a href="../常用API/Random.html">
+            
+                    
+                    Random
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../常用API/Math.html">
+            
+                <a href="../常用API/Math.html">
+            
+                    
+                    Math
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../常用API/System.html">
+            
+                <a href="../常用API/System.html">
+            
+                    
+                    System
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../常用API/Scanner.html">
+            
+                <a href="../常用API/Scanner.html">
+            
+                    
+                    Scanner
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >继承</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon "></span><a href="#&#x7EE7;&#x627F;"><b></b>&#x7EE7;&#x627F;</a></li><ul><li><span class="title-icon "></span><a href="#&#x7EE7;&#x627F;&#x7684;&#x683C;&#x5F0F;"><b></b>&#x7EE7;&#x627F;&#x7684;&#x683C;&#x5F0F;</a></li><li><span class="title-icon "></span><a href="#&#x7EE7;&#x627F;&#x7684;&#x7279;&#x70B9;"><b></b>&#x7EE7;&#x627F;&#x7684;&#x7279;&#x70B9;</a></li><li><span class="title-icon "></span><a href="#&#x7EE7;&#x627F;&#x7684;&#x5173;&#x7CFB;"><b></b>&#x7EE7;&#x627F;&#x7684;&#x5173;&#x7CFB;</a></li><li><span class="title-icon "></span><a href="#super"><b></b>super</a></li><li><span class="title-icon "></span><a href="#&#x7EE7;&#x627F;&#x4E2D;&#x8BBF;&#x95EE;&#x7279;&#x70B9;"><b></b>&#x7EE7;&#x627F;&#x4E2D;&#x8BBF;&#x95EE;&#x7279;&#x70B9;</a></li><ul><li><span class="title-icon "></span><a href="#&#x8BBF;&#x95EE;&#x6784;&#x9020;&#x65B9;&#x6CD5;"><b></b>&#x8BBF;&#x95EE;&#x6784;&#x9020;&#x65B9;&#x6CD5;</a></li><li><span class="title-icon "></span><a href="#&#x8BBF;&#x95EE;&#x6210;&#x5458;&#x65B9;&#x6CD5;"><b></b>&#x8BBF;&#x95EE;&#x6210;&#x5458;&#x65B9;&#x6CD5;</a></li></ul><li><span class="title-icon "></span><a href="#&#x65B9;&#x6CD5;&#x7684;&#x91CD;&#x5199;"><b></b>&#x65B9;&#x6CD5;&#x7684;&#x91CD;&#x5199;</a></li></ul><li><span class="title-icon "></span><a href="#&#x7EE7;&#x627F;&#x7684;&#x6CE8;&#x610F;"><b></b>&#x7EE7;&#x627F;&#x7684;&#x6CE8;&#x610F;</a></li></ul></div><a href="#&#x7EE7;&#x627F;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x7EE7;&#x627F;"><a name="&#x7EE7;&#x627F;" class="anchor-navigation-ex-anchor" href="#&#x7EE7;&#x627F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7EE7;&#x627F;</h1>
+<ul>
+<li>&#x7EE7;&#x627F;&#x662F;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x4E09;&#x5927;&#x7279;&#x5F81;&#x4E4B;&#x4E00;<ul>
+<li>&#x53EF;&#x4EE5;&#x4F7F;&#x5F97;&#x5B50;&#x7C7B;&#x5177;&#x6709;&#x7236;&#x7C7B;&#x7684;<code>&#x5C5E;&#x6027;</code>&#x548C;<code>&#x65B9;&#x6CD5;</code>&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x5728;&#x5B50;&#x7C7B;&#x4E2D;<code>&#x91CD;&#x65B0;&#x5B9A;&#x4E49;</code>&#xFF0C;<code>&#x8FFD;&#x52A0;&#x5C5E;&#x6027;</code>&#x548C;<code>&#x65B9;&#x6CD5;</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="&#x7EE7;&#x627F;&#x7684;&#x683C;&#x5F0F;"><a name="&#x7EE7;&#x627F;&#x7684;&#x683C;&#x5F0F;" class="anchor-navigation-ex-anchor" href="#&#x7EE7;&#x627F;&#x7684;&#x683C;&#x5F0F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7EE7;&#x627F;&#x7684;&#x683C;&#x5F0F;</h2>
+<blockquote>
+<p>public class &#x5B50;&#x7C7B;&#x540D;(&#x6D3E;&#x751F;&#x7C7B;) extends &#x7236;&#x7C7B;&#x540D;(&#x57FA;&#x7C7B;&#x3001;&#x8D85;&#x7C7B;) {}</p>
+<p>public class Zi extends Fu {}</p>
+</blockquote>
+<h2 id="&#x7EE7;&#x627F;&#x7684;&#x7279;&#x70B9;"><a name="&#x7EE7;&#x627F;&#x7684;&#x7279;&#x70B9;" class="anchor-navigation-ex-anchor" href="#&#x7EE7;&#x627F;&#x7684;&#x7279;&#x70B9;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7EE7;&#x627F;&#x7684;&#x7279;&#x70B9;</h2>
+<ul>
+<li><p>&#x4F18;&#x70B9;</p>
+<ul>
+<li>&#x63D0;&#x9AD8;&#x4E86;&#x4EE3;&#x7801;&#x7684;&#x590D;&#x7528;&#x6027;&#xFF08;&#x591A;&#x4E2A;&#x7C7B;&#x76F8;&#x540C;&#x7684;&#x6210;&#x5458;&#x53EF;&#x4EE5;&#x653E;&#x5230;&#x540C;&#x4E00;&#x4E2A;&#x7C7B;&#x4E2D;&#xFF09;</li>
+<li>&#x63D0;&#x9AD8;&#x4E86;&#x4EE3;&#x7801;&#x7684;&#x7EF4;&#x62A4;&#x6027;&#xFF08;&#x5982;&#x679C;&#x4EE3;&#x7801;&#x9700;&#x8981;&#x66F4;&#x6539;&#xFF0C;&#x4FEE;&#x6539;&#x4E00;&#x5904;&#x5373;&#x53EF;&#xFF09;</li>
+</ul>
+</li>
+<li><p>&#x7F3A;&#x70B9;</p>
+<ul>
+<li>&#x7EE7;&#x627F;&#x8BA9;&#x7C7B;&#x4E0E;&#x7C7B;&#x4E4B;&#x95F4;&#x4EA7;&#x751F;&#x4E86;&#x5173;&#x7CFB;&#xFF0C;&#x7C7B;&#x7684;&#x8026;&#x5408;&#x6027;&#x589E;&#x5F3A;&#x4E86;&#xFF0C;&#x5F53;&#x7236;&#x7C7B;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x65F6;&#x5B50;&#x7C7B;&#x5B9E;&#x73B0;&#x4E5F;&#x4E0D;&#x5F97;&#x4E0D;&#x8DDF;&#x7740;&#x53D8;&#x5316;&#xFF0C;&#x524A;&#x5F31;&#x4E86;&#x5B50;&#x7C7B;&#x7684;&#x72EC;&#x7ACB;&#x6027;</li>
+</ul>
+</li>
+</ul>
+<h2 id="&#x7EE7;&#x627F;&#x7684;&#x5173;&#x7CFB;"><a name="&#x7EE7;&#x627F;&#x7684;&#x5173;&#x7CFB;" class="anchor-navigation-ex-anchor" href="#&#x7EE7;&#x627F;&#x7684;&#x5173;&#x7CFB;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7EE7;&#x627F;&#x7684;&#x5173;&#x7CFB;</h2>
+<ul>
+<li>is a<ul>
+<li>&#x82F9;&#x679C;&#x548C;&#x6C34;&#x679C;&#x3001;&#x732B;&#x548C;&#x52A8;&#x7269;&#xFF0C;&#x90FD;&#x662F;&#x6EE1;&#x8DB3;&#x524D;&#x8005;&#x662F;&#x540E;&#x8005;&#x7684;&#x4E00;&#x79CD;&#x6216;&#x662F;&#x540E;&#x8005;&#x662F;&#x524D;&#x8005;&#x7684;&#x4E00;&#x79CD;&#xFF0C;&#x5B58;&#x5728;&#x7EE7;&#x627F;&#x5173;&#x7CFB;</li>
+</ul>
+</li>
+</ul>
+<h2 id="super"><a name="super" class="anchor-navigation-ex-anchor" href="#super"><i class="fa fa-link" aria-hidden="true"></i></a>super</h2>
+<ul>
+<li><p>&#x65B9;&#x6CD5;&#x5185;&#x53D8;&#x91CF;&#x2014;&#x2014;&gt;&#x6210;&#x5458;&#x53D8;&#x91CF;&#x2014;&#x2014;&gt;&#x7236;&#x7C7B;&#x6210;&#x5458;&#x53D8;&#x91CF;</p>
+<ul>
+<li><p>&#x8F93;&#x51FA;&#x65B9;&#x6CD5;&#x5185;&#x90FD;&#x53D8;&#x91CF;</p>
+<pre><code class="lang-java">System.out.println(age);
+</code></pre>
+</li>
+<li><p>&#x8F93;&#x51FA;&#x6210;&#x5458;&#x53D8;&#x91CF;</p>
+<pre><code class="lang-java">System.out.println(<span class="hljs-keyword">this</span>.age);
+</code></pre>
+</li>
+<li><p>&#x8F93;&#x51FA;&#x7236;&#x7C7B;&#x6210;&#x5458;&#x53D8;&#x91CF;</p>
+<pre><code class="lang-java">System.out.println(<span class="hljs-keyword">super</span>.age);
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>super&#x7528;&#x6CD5;&#x548C;this&#x7C7B;&#x4F3C;</p>
+<ul>
+<li>this&#x4EE3;&#x8868;&#x672C;&#x7C7B;&#x5BF9;&#x8C61;&#x7684;&#x5F15;&#x7528;</li>
+<li>super&#x4EE3;&#x8868;&#x7236;&#x7C7B;&#x5BF9;&#x8C61;&#x7684;&#x5F15;&#x7528;</li>
+</ul>
+<p>| &#x5173;&#x952E;&#x5B57; |            &#x8BBF;&#x95EE;&#x6210;&#x5458;&#x53D8;&#x91CF;            |         &#x8BBF;&#x95EE;&#x6784;&#x9020;&#x65B9;&#x6CD5;          |              &#x8BBF;&#x95EE;&#x6210;&#x5458;&#x65B9;&#x6CD5;              |
+| :----: | :--------------------------------: | :---------------------------: | :------------------------------------: |
+|  this  | this.&#x6210;&#x5458;&#x53D8;&#x91CF;<br>&#x8BBF;&#x95EE;&#x672C;&#x7C7B;&#x6210;&#x5458;&#x53D8;&#x91CF;  | this(&#x2026;&#x2026;)<br>&#x8BBF;&#x95EE;&#x672C;&#x7C7B;&#x6784;&#x9020;&#x65B9;&#x6CD5;  | this.&#x6210;&#x5458;&#x65B9;&#x6CD5;(&#x2026;&#x2026;)<br>&#x8BBF;&#x95EE;&#x672C;&#x7C7B;&#x6210;&#x5458;&#x65B9;&#x6CD5;  |
+| super  | super.&#x6210;&#x5458;&#x53D8;&#x91CF;<br>&#x8BBF;&#x95EE;&#x7236;&#x7C7B;&#x6210;&#x5458;&#x53D8;&#x91CF; | super(&#x2026;&#x2026;)<br>&#x8BBF;&#x95EE;&#x7236;&#x7C7B;&#x6784;&#x9020;&#x65B9;&#x6CD5; | super.&#x6210;&#x5458;&#x65B9;&#x6CD5;(&#x2026;&#x2026;)<br>&#x8BBF;&#x95EE;&#x7236;&#x7C7B;&#x6210;&#x5458;&#x65B9;&#x6CD5; |</p>
+</li>
+</ul>
+<h2 id="&#x7EE7;&#x627F;&#x4E2D;&#x8BBF;&#x95EE;&#x7279;&#x70B9;"><a name="&#x7EE7;&#x627F;&#x4E2D;&#x8BBF;&#x95EE;&#x7279;&#x70B9;" class="anchor-navigation-ex-anchor" href="#&#x7EE7;&#x627F;&#x4E2D;&#x8BBF;&#x95EE;&#x7279;&#x70B9;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7EE7;&#x627F;&#x4E2D;&#x8BBF;&#x95EE;&#x7279;&#x70B9;</h2>
+<h3 id="&#x8BBF;&#x95EE;&#x6784;&#x9020;&#x65B9;&#x6CD5;"><a name="&#x8BBF;&#x95EE;&#x6784;&#x9020;&#x65B9;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#&#x8BBF;&#x95EE;&#x6784;&#x9020;&#x65B9;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8BBF;&#x95EE;&#x6784;&#x9020;&#x65B9;&#x6CD5;</h3>
+<ul>
+<li><p>&#x8BBF;&#x95EE;&#x7279;&#x70B9;</p>
+<ul>
+<li>&#x5B50;&#x7C7B;&#x4E2D;&#x6240;&#x6709;&#x7684;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x9ED8;&#x8BA4;&#x90FD;&#x4F1A;&#x8BBF;&#x95EE;&#x7236;&#x7C7B;&#x4E2D;&#x65E0;&#x53C2;&#x7684;&#x6784;&#x9020;&#x65B9;&#x6CD5;</li>
+<li>&#x6BCF;&#x4E00;&#x4E2A;&#x5B50;&#x7C7B;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x7684;&#x7B2C;&#x4E00;&#x6761;&#x8BED;&#x53E5;&#x9ED8;&#x8BA4;&#x662F;&#xFF1A;<code>super()</code></li>
+</ul>
+</li>
+<li><p>&#x5982;&#x679C;&#x7236;&#x7C7B;&#x4E2D;&#x6CA1;&#x6709;&#x65E0;&#x53C2;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#xFF0C;&#x53EA;&#x6709;&#x5E26;&#x53C2;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#xFF0C;&#x5982;&#x4F55;&#x89E3;&#x51B3;&#xFF1F;</p>
+<ul>
+<li><p>&#x901A;&#x8FC7;&#x4F7F;&#x7528;super&#x5173;&#x952E;&#x5B57;&#x8C03;&#x7528;&#x7236;&#x7C7B;&#x7684;&#x6709;&#x53C2;&#x6570;&#x6784;&#x9020;&#x65B9;&#x6CD5;</p>
+</li>
+<li><p>&#x5728;&#x7236;&#x7C7B;&#x4E2D;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65E0;&#x53C2;&#x6570;&#x6784;&#x9020;&#x65B9;&#x6CD5;</p>
+<ul>
+<li>&#x7236;&#x7C7B;&#xFF08;&#x5728;&#x7236;&#x7C7B;&#x4E2D;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65E0;&#x53C2;&#x6570;&#x7684;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#xFF09;</li>
+</ul>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> demo3;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Fu</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Fu</span><span class="hljs-params">()</span></span>{ <span class="hljs-comment">// &#x8FD9;&#x5C31;&#x662F;&#x65E0;&#x53C2;&#x6570;&#x7684;&#x6784;&#x9020;&#x65B9;&#x6CD5;</span>
+        System.out.println(<span class="hljs-string">&quot;&#x8F93;&#x51FA;&#x65E0;&#x53C2;&#x6570;&#x7684;&#x7236;&#x7C7B;&quot;</span>);
+    }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Fu</span><span class="hljs-params">(<span class="hljs-keyword">int</span> id)</span></span>{
+        System.out.println(<span class="hljs-string">&quot;&#x8F93;&#x51FA;&#x6709;&#x53C2;&#x6570;&#x7684;&#x7236;&#x7C7B;&#xFF1A;&quot;</span> + id);
+    }
+}
+</code></pre>
+<ul>
+<li>&#x5B50;&#x7C7B;&#xFF08;&#x5B50;&#x7C7B;&#x4E2D;&#x6DFB;&#x52A0;&#x8C03;&#x7528;&#x7236;&#x7C7B;&#x6709;&#x53C2;&#x6570;&#x7684;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#xFF09;</li>
+</ul>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> demo3;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Zi</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Fu</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Zi</span><span class="hljs-params">()</span></span>{
+        System.out.println(<span class="hljs-string">&quot;&#x8F93;&#x51FA;&#x65E0;&#x53C2;&#x6570;&#x7684;&#x5B50;&#x7C7B;&quot;</span>);
+    }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Zi</span><span class="hljs-params">(<span class="hljs-keyword">int</span> id)</span></span>{
+        <span class="hljs-keyword">super</span>(<span class="hljs-number">1</span>); <span class="hljs-comment">// &#x8FD9;&#x91CC;&#x5C31;&#x662F;&#x8C03;&#x7528;&#x7684;&#x5730;&#x65B9;</span>
+        System.out.println(<span class="hljs-string">&quot;&#x8F93;&#x51FA;&#x6709;&#x53C2;&#x6570;&#x7684;&#x5B50;&#x7C7B;&#xFF1A;&quot;</span> + id);
+    }
+
+}
+</code></pre>
+<ul>
+<li>&#x6D4B;&#x8BD5;</li>
+</ul>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> demo3;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Demo1</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        Zi zi = <span class="hljs-keyword">new</span> Zi(<span class="hljs-number">1</span>);
+    }
+}
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="&#x8BBF;&#x95EE;&#x6210;&#x5458;&#x65B9;&#x6CD5;"><a name="&#x8BBF;&#x95EE;&#x6210;&#x5458;&#x65B9;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#&#x8BBF;&#x95EE;&#x6210;&#x5458;&#x65B9;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8BBF;&#x95EE;&#x6210;&#x5458;&#x65B9;&#x6CD5;</h3>
+<ul>
+<li>&#x5B50;&#x7C7B;&#x8303;&#x56F4;&#x5BFB;&#x627E;<ul>
+<li>&#x7236;&#x7C7B;&#x8303;&#x56F4;&#x5BFB;&#x627E;<ul>
+<li>&#x8FD8;&#x6CA1;&#x6709;&#x5C31;&#x62A5;&#x9519;&#xFF08;&#x4E0D;&#x8003;&#x8651;&#x7236;&#x4EB2;&#x7684;&#x7236;&#x4EB2;&#xFF0C;&#x4F46;&#x662F;&#x786E;&#x5B9E;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x5230;&#x7236;&#x4EB2;&#x7684;&#x7236;&#x4EB2;&#x7684;&#x65B9;&#x6CD5;&#xFF09;</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="&#x65B9;&#x6CD5;&#x7684;&#x91CD;&#x5199;"><a name="&#x65B9;&#x6CD5;&#x7684;&#x91CD;&#x5199;" class="anchor-navigation-ex-anchor" href="#&#x65B9;&#x6CD5;&#x7684;&#x91CD;&#x5199;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x65B9;&#x6CD5;&#x7684;&#x91CD;&#x5199;</h2>
+<ul>
+<li>&#x6982;&#x5FF5;<ul>
+<li>&#x5B50;&#x7C7B;&#x548C;&#x7236;&#x7C7B;&#x4E2D;&#x51FA;&#x73B0;&#x4E00;&#x6837;&#x7684;&#x65B9;&#x6CD5;&#x58F0;&#x660E;</li>
+</ul>
+</li>
+<li>&#x5E94;&#x7528;<ul>
+<li>&#x5F53;&#x5B50;&#x7C7B;&#x9700;&#x8981;&#x7236;&#x7C7B;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x800C;&#x529F;&#x80FD;&#x4E3B;&#x4F53;&#x5B50;&#x7C7B;&#x6709;&#x81EA;&#x5DF1;&#x7279;&#x6709;&#x7684;&#x5185;&#x5BB9;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x91CD;&#x5199;&#x7236;&#x7C7B;&#x4E2D;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x8FD9;&#x6837;&#x65E2;&#x6709;&#x7236;&#x7C7B;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x8FD8;&#x6709;&#x5B50;&#x7C7B;&#x7684;&#x529F;&#x80FD;</li>
+</ul>
+</li>
+<li><p>@Override</p>
+<ul>
+<li>&#x4E00;&#x4E2A;&#x6CE8;&#x89E3;</li>
+<li>&#x5E2E;&#x52A9;&#x68C0;&#x67E5;&#x91CD;&#x5199;&#x65B9;&#x6CD5;&#x7684;&#x65B9;&#x6CD5;&#x58F0;&#x660E;&#x7684;&#x6B63;&#x786E;&#x6027;</li>
+</ul>
+</li>
+<li><p>&#x6CE8;&#x610F;&#x4E8B;&#x9879;</p>
+<ul>
+<li>&#x7236;&#x7C7B;&#x4E2D;&#x7684;&#x79C1;&#x6709;&#x65B9;&#x6CD5;&#xFF0C;&#x5B50;&#x7C7B;&#x4E16;&#x7EE7;&#x627F;&#x4E0D;&#x5230;&#x7684;&#xFF08;private&#x4FEE;&#x9970;&#x7684;&#xFF09;&#xFF0C;&#x4E5F;&#x4E0D;&#x53EF;&#x80FD;&#x91CD;&#x5199;</li>
+<li>&#x5B50;&#x7C7B;&#x65B9;&#x6CD5;&#x7684;&#x8BBF;&#x95EE;&#x6743;&#x9650;&#x4E0D;&#x80FD;&#x66F4;&#x4F4E;&#xFF08;public &gt; &#x9ED8;&#x8BA4; &gt; &#x79C1;&#x6709;&#xFF09;</li>
+</ul>
+</li>
+</ul>
+<h1 id="&#x7EE7;&#x627F;&#x7684;&#x6CE8;&#x610F;"><a name="&#x7EE7;&#x627F;&#x7684;&#x6CE8;&#x610F;" class="anchor-navigation-ex-anchor" href="#&#x7EE7;&#x627F;&#x7684;&#x6CE8;&#x610F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7EE7;&#x627F;&#x7684;&#x6CE8;&#x610F;</h1>
+<ul>
+<li>java&#x4E0D;&#x652F;&#x6301;&#x591A;&#x7EE7;&#x627F;&#xFF0C;&#x652F;&#x6301;&#x5355;&#x7EE7;&#x627F;</li>
+<li>java&#x4E2D;&#x7C7B;&#x652F;&#x6301;&#x591A;&#x5C42;&#x7EE7;&#x627F;</li>
+</ul>
+
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="封装.html" class="navigation navigation-prev " aria-label="Previous page: 封装">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="多态.html" class="navigation navigation-next " aria-label="Next page: 多态">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"继承","level":"1.3.2","depth":2,"next":{"title":"多态","level":"1.3.3","depth":2,"path":"面向对象/多态.md","ref":"面向对象/多态.md","articles":[]},"previous":{"title":"封装","level":"1.3.1","depth":2,"path":"面向对象/封装.md","ref":"面向对象/封装.md","articles":[]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","expandable-chapters","-lunr","-search","search-pro","splitter","popup","ancre-navigation","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"splitter":{},"search-pro":{},"popup":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Mpy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Java","language":"zh-hans","gitbook":"3.x.x"},"file":{"path":"面向对象/继承.md","mtime":"2021-04-04T06:24:18.858Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-04-04T07:23:42.479Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
