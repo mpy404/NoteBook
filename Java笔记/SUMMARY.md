@@ -1,6 +1,6 @@
 - [Gitbook的搭建](README.md)
 
-* Java基础
+* [Java基础](NoteBook/Java基础/README.md)
   * [java基础](NoteBook/java基础/java基础.md)
   * [变量与常亮](NoteBook/java基础/变量与常亮.md)
   * [数据类型](NoteBook/java基础/数据类型.md)
@@ -17,12 +17,12 @@
   * [接口](NoteBook/java基础/接口.md)
   * [内部类](NoteBook/java基础/内部类.md)
   * [基本类型包装类](NoteBook/java基础/基本类型包装类.md)
-* 面向对象
+* [面向对象](NoteBook/面向对象/README.md)
   * [封装](NoteBook/面向对象/封装.md)
   * [继承](NoteBook/面向对象/继承.md)
   * [多态](NoteBook/面向对象/多态.md)
 
-- 常用API
+- [常用API](NoteBook/常用API/README.md))
   - [Random](NoteBook/常用API/Random.md)
   - [Math](NoteBook/常用API/Math.md)
   - [System](NoteBook/常用API/System.md)
