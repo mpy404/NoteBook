@@ -1,0 +1,14 @@
+{
+    "title" : "Java",
+    "author" : "Mpy",
+    "language" : "zh-hans",
+    "gitbook": "3.x.x",
+    "plugins": [
+        "back-to-top-button",
+        "expandable-chapters",
+        "-lunr", "-search", "search-pro",
+        "splitter",
+        "popup",
+        "ancre-navigation"
+    ]
+}

